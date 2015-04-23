@@ -1,0 +1,35 @@
+<div id="signup" class="container edit-container">
+	<div class="row">
+		<div class="col-sm-12">
+			<%= form_for(@user) do |f| %>
+				<%= render 'shared/error_messages', object: f.object %>
+
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+					  <%= f.label :name %>
+					  <%= f.text_field :name, class: "form-control" %>
+					  <%= f.label :email %>
+					  <%= f.text_field :email, class: "form-control" %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+					  <%= f.label :password %>
+					  <%= f.password_field :password, class: "form-control" %>
+					  <%= f.label :password_confirmation, "Password Confirmation" %>
+					  <%= f.password_field :password_confirmation, class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="button-container">
+							<%= f.submit "Create", class: "save button" %>
+							<%= link_to 'Cancel', '/main/index', class: "cancel button" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
