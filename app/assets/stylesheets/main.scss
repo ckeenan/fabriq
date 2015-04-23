@@ -3,11 +3,103 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.heading {
+	padding-top: 2em;
+	padding-bottom: 1em;
+
+	h1 {
+		text-align: center;
+	}
+
+	p {
+		text-align: center;
+	}
+}
 
 #index {
 	padding: 4em 0 0 0;
 
 	h1 {
 		text-align: center;
+	}
+}
+
+
+#about {
+
+	.information {
+
+		img {
+
+		}
+
+		h3 {
+			text-align: center;
+		}
+
+		p {
+			text-align: center;
+		}
+
+		.invite, .explore {
+			margin-top: 3em;
+			padding-top: 2em;
+			padding-bottom: 3em;
+			border: 3px solid #000;
+		}
+	}
+}
+
+#explore {
+
+	.blocks {
+
+		.block {
+			padding-top: 2em;
+			padding-bottom: 2em;
+			border: 3px solid #000;
+			margin-bottom: 3em;
+			float: left;
+			text-align: center;
+			width: 48%;
+
+			i, span {
+				display: block;
+				font-size: 7em;
+			}
+		}
+
+		.block:hover {
+			background: #333;
+
+			i, span {
+				color: #fff;
+			}
+
+			h3 {
+				color: #fff;
+			}
+		}
+
+		.block:last-child {
+			float: right;
+		}
+
+		h3 {
+			text-align: center;
+		}
+	}
+
+	.more-info {
+		padding-top: 3em;
+
+		.item {
+			text-align: center;
+		}
+
+		i, span {
+			font-size: 3em;
+			margin-bottom: .5em;
+		}
 	}
 }

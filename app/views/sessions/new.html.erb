@@ -1,2 +1,26 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div id="signup">
+	<div class="container edit-container">
+		<div class="row">
+			<div class="heading col-md-4 col-md-offset-4">
+				<h1>Sign In</h1>
+				<p><em>Don't have a persona? </em><a href="/users/new" class="login">Sign up here</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form col-sm-4 col-sm-offset-4">
+			    <%= form_for(:session, url: sessions_path) do |f| %>
+
+			      <%= f.label :email %>
+			      <%= f.text_field :email, class: "form-control" %>
+
+			      <%= f.label :password %>
+			      <%= f.password_field :password, class: "form-control" %>
+
+			      <div class="button-container">
+			      	<%= f.submit "Sign in", class: "save button" %>
+			      </div>
+			    <% end %>
+			</div>
+		</div>
+	</div>
+</div>
