@@ -6,8 +6,15 @@
 			</div>
 		</div>
 		<div class="content row">
-			<div class="col-md-3 col-md-offset-2">
-				<img style="display: block; width: 200px; margin: 0 auto 2em;" src="/assets/avatar.jpg" />
+			<div class="col-md-2 col-md-offset-2">
+				<img style="display: block; width: 100%; margin: 0 auto;" src="<%= @user.avatar.to_s %>" />
+				<%= form_for(@user) do |f| %>
+					<%= f.label "New Avatar" %>
+					<%= f.file_field :avatar, :onchange =>"validateFiles(this);", class: "form-control" %>
+
+					<%= f.submit "Update" %>
+				<% end %>
+
 				<div class="rep">
 					<p><%= @user.reputation.round %></p>
 					<h4>My rep</h4>
@@ -17,7 +24,7 @@
 					<h4>My tribe</h4>
 				</div>
 			</div>
-			<div class="col-md-5">
+			<div class="col-md-5 col-md-offset-1">
 				<p>
 					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 				</p>
@@ -25,7 +32,7 @@
 					<a href="#" class="button save">Beam 'Reps'</a>
 					<a href="#" class="button save">Burn 'Reps'</a>
 				</div>
-				<div class="top-reps row">
+				<div class="row top-reps">
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-12">

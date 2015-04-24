@@ -14,39 +14,15 @@
 								<h3>Top reputations in my area</h3>
 							</div>
 						</div>
-						<div class="row" style="margin-bottom:2em;">
-							<div class="item col-sm-4">
-								<img src="/assets/trailblazer.jpg" />
-								<h4>Trailblazers</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-							<div class="item col-sm-4">
-								<img src="/assets/persona_01.jpg" />
-								<h4>Stage X</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-							<div class="item col-sm-4">
-								<img src="/assets/persona_02.jpg" />
-								<h4>Trailblazers</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-						</div>
+
 						<div class="row">
-							<div class="item col-sm-4">
-								<img src="/assets/persona_03.jpg" />
-								<h4>Trailblazers</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-							<div class="item col-sm-4">
-								<img src="/assets/persona_04.jpg" />
-								<h4>Trailblazers</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-							<div class="item col-sm-4">
-								<img src="/assets/persona_05.jpg" />
-								<h4>Trailblazers</h4>
-								<p>Lorem Ipsum</p>
-							</div>
+							<% @top_reps.each do |rep| %>
+								<div class="item col-sm-4">
+									<img src="<%= rep.avatar.to_s %>" />
+									<h4><a href="/users/<%= rep.id %>"><%= rep.name %></a></h4>
+									<p>Lorem Ipsum</p>
+								</div>
+							<% end %>
 						</div>
 					</div>
 				</div>
@@ -70,29 +46,14 @@
 								<h3>Featured Mysteryland reps</h3>
 							</div>
 						</div>
-						<div class="row" style="margin-bottom:2em;">
-							<div class="item col-sm-6">
-								<img src="/assets/persona_08.jpg" />
-								<h4>Valley</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-							<div class="item col-sm-6">
-								<img src="/assets/persona_07.jpg" />
-								<h4>Stage X</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-						</div>
 						<div class="row">
-							<div class="item col-sm-6">
-								<img src="/assets/persona_09.jpg" />
-								<h4>Trailblazers</h4>
-								<p>Lorem Ipsum</p>
-							</div>
-							<div class="item col-sm-6">
-								<img src="/assets/persona_04.jpg" />
-								<h4>Trailblazers</h4>
-								<p>Lorem Ipsum</p>
-							</div>
+							<% @mystery.each do |mystery| %>
+								<div class="item col-sm-6">
+									<img src="<%= mystery.avatar.to_s %>" />
+									<h4><a href="/users/<%= mystery.id %>"><%= mystery.name %></a></h4>
+									<p>Lorem Ipsum</p>
+								</div>
+							<% end %>
 						</div>
 					</div>
 				</div>

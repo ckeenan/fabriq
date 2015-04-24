@@ -26,7 +26,6 @@
 	.top-reps {
 		border: 2px solid #000;
 		padding-top: 1em;
-		padding-bottom: 1em;
 
 		h3 {
 			font-size: 1.25em;
@@ -34,6 +33,7 @@
 		}
 
 		.item {
+			margin-bottom: 1em;
 
 			img {
 				width: 40%;
