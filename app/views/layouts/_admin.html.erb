@@ -1,5 +1,5 @@
 <div class="admin-panel">
-	<h3><a href="/users/<%= current_user.id %>">Hello, <%= current_user.name %></a></h3>
+	<% if signed_in? %><h3><a href="/users/<%= current_user.id %>">Hello, <%= current_user.name %></a></h3><% end %>
 	<a href="/users/new">New User</a>
 	<% if signed_in? %>	        
 	    <%= link_to "Log out", signout_path, method: "delete", class: 'login' %>
@@ -8,5 +8,5 @@
 	<% end %>
 	<a href="/main/explore">Explore</a>
 	<a href="/main/about">About Fabriq</a>
-	<a href="#">Invite Others</a>
+	<a href="/main/invite">Invite Others</a>
 </div>

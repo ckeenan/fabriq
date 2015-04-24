@@ -28,3 +28,61 @@
 
 	}
 }
+
+#persona {
+
+	.content {
+		padding-top: 3em;
+
+		.rep {
+			margin-top: 3em;
+			font-size: 1em;
+			display: block;
+			text-align: center;
+
+			p {
+				display: block;
+				height: 1.5em;
+				width: 1.5em;
+				margin: auto;
+				font-size: 5em;
+				border-radius: 1.5em;
+				border: 3px solid #000;
+				font-weight: bold;
+				font-style: italic;
+			}
+
+			h4 {
+				font-size: 1.5em;
+				font-weight: bold;
+			}
+		}
+
+		.tribe {
+			font-size: 1em;
+			text-align: center;
+			margin: 3em auto;
+			width: 10em;
+
+			i {
+				font-size: 5em;
+				color: #000;
+			}
+		}
+
+		.invite, .explore {
+			margin-top: 3em;
+			padding-top: 2em;
+			padding-bottom: 3em;
+			border: 3px solid #000;
+			text-align: center;
+			display: block;
+		}
+
+		.invite:hover, .explore:hover {
+			background: #333;
+			color: #fff;
+		}
+	}
+}
+

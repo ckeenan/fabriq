@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'main/index'
   get 'main/about'
   get 'main/explore'
+  get 'main/invite'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
