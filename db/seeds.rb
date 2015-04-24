@@ -10,5 +10,5 @@
 
 
 User.create([
-	{name: "Admin", email: "admin@example.com", reputation: "1", password: "admin", password_confirmation: "admin"}
+	{name: "Admin", email: "admin@example.com", reputation: "20", password: "admin", password_confirmation: "admin"}
 ])
