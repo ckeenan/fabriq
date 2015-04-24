@@ -83,6 +83,38 @@
 			background: #333;
 			color: #fff;
 		}
+
+		.top-reps {
+			border: 2px solid #000;
+			padding-top: 1em;
+			padding-bottom: 1em;
+
+			h3 {
+				font-size: 1.25em;
+				margin: 0 0 1em;
+			}
+
+			.item {
+
+				img {
+					width: 40%;
+					display: block;
+					float: left;
+					margin-right: .25em;
+				}
+
+				h4 {
+					font-size: .9em;
+					font-weight: bold;
+					margin: 0;
+				}
+
+				p {
+					font-size: .75em;
+					margin: 0;
+				}
+			}
+		}
 	}
 }
 

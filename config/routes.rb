@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'main/invite'
 
   resources :users
+  resources :invites
   resources :sessions, only: [:new, :create, :destroy]
 
   get "sessions/new"
