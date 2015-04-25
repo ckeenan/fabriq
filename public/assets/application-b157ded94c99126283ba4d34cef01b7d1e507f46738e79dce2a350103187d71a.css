@@ -1,3 +1,21 @@
+/* line 8, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/badges.scss */
+#badge {
+  padding-top: 5em;
+}
+/* line 12, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/badges.scss */
+#badge .badge {
+  padding: 2em;
+  margin: 1em 0;
+}
+/* line 16, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/badges.scss */
+#badge .badge a {
+  color: #fff;
+  margin: 0 .5em;
+}
+/* line 7, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/invites.scss */
+#invite {
+  padding: 5em 0;
+}
 /* line 6, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 .heading {
   padding-top: 2em;
@@ -14,7 +32,7 @@
 
 /* line 19, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #index {
-  padding: 0 0 5em;
+  padding: 5em 0;
 }
 /* line 22, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #index h1 {
@@ -57,9 +75,9 @@
   padding: 1em 3em 2em;
   border: 3px solid #000;
   display: block;
-  width: 80%;
+  width: 40%;
   border-radius: 5em;
-  margin: 2em auto 0;
+  margin: 2em auto 3em;
   text-align: center;
 }
 /* line 68, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
@@ -68,15 +86,19 @@
   background: #333;
 }
 
-/* line 83, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 75, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#about {
+  padding: 5em 0;
+}
+/* line 84, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #about .information h3 {
   text-align: center;
 }
-/* line 87, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 88, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #about .information p {
   text-align: center;
 }
-/* line 91, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 92, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #about .information .invite, #about .information .explore {
   margin-top: 3em;
   padding-top: 2em;
@@ -84,13 +106,17 @@
   border: 3px solid #000;
   display: block;
 }
-/* line 99, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 100, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #about .information .invite:hover, #about .information .explore:hover {
   background: #333;
   color: #fff;
 }
 
-/* line 110, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 107, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#explore {
+  padding: 5em 0;
+}
+/* line 112, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .blocks .block {
   padding-top: 2em;
   padding-bottom: 2em;
@@ -100,47 +126,47 @@
   text-align: center;
   width: 48%;
 }
-/* line 119, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 121, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .blocks .block i, #explore .blocks .block span {
   display: block;
   font-size: 7em;
 }
-/* line 125, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 127, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .blocks .block:hover {
   background: #333;
 }
-/* line 128, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 130, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .blocks .block:hover i, #explore .blocks .block:hover span {
   color: #fff;
 }
-/* line 132, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 134, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .blocks .block:hover h3 {
   color: #fff;
 }
-/* line 137, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 139, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .blocks .block:last-child {
   float: right;
 }
-/* line 141, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 143, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .blocks h3 {
   text-align: center;
 }
-/* line 146, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 148, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .more-info {
   padding-top: 3em;
 }
-/* line 149, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 151, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .more-info .item {
   text-align: center;
 }
-/* line 153, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 155, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #explore .more-info i, #explore .more-info span {
   font-size: 3em;
   margin-bottom: .5em;
 }
 /* line 7, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #signup {
-  padding-top: 8em;
+  padding-top: 5em;
 }
 /* line 10, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #signup label {
@@ -166,20 +192,24 @@
 
 /* line 32, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona {
-  padding: 0 0 5em;
+  padding: 5em 0;
 }
 /* line 35, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content {
   padding-top: 3em;
 }
 /* line 38, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+#persona .content h3 {
+  margin: 0;
+}
+/* line 42, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .rep {
   margin-top: 3em;
   font-size: 1em;
   display: block;
   text-align: center;
 }
-/* line 44, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 48, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .rep p {
   display: block;
   height: 2em;
@@ -192,24 +222,24 @@
   font-weight: bold;
   font-style: italic;
 }
-/* line 57, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 61, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .rep h4 {
   font-size: 1.5em;
   font-weight: bold;
 }
-/* line 63, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 67, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .tribe {
   font-size: 1em;
   text-align: center;
   margin: 3em auto;
   width: 10em;
 }
-/* line 69, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 73, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .tribe i {
   font-size: 5em;
   color: #000;
 }
-/* line 75, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 79, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .invite, #persona .content .explore {
   margin-top: 3em;
   padding-top: 2em;
@@ -218,36 +248,36 @@
   text-align: center;
   display: block;
 }
-/* line 84, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 88, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .invite:hover, #persona .content .explore:hover {
   background: #333;
   color: #fff;
 }
-/* line 89, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 93, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .top-reps {
   border: 2px solid #000;
   padding-top: 1em;
   padding-bottom: 1em;
 }
-/* line 94, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 98, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .top-reps h3 {
   font-size: 1.25em;
   margin: 0 0 1em;
 }
-/* line 101, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 105, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .top-reps .item img {
   width: 40%;
   display: block;
   float: left;
   margin-right: .25em;
 }
-/* line 108, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 112, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .top-reps .item h4 {
   font-size: .9em;
   font-weight: bold;
   margin: 0 0 0 0;
 }
-/* line 114, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
+/* line 118, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/users.scss */
 #persona .content .top-reps .item p {
   font-size: .75em;
   margin: 0;
@@ -275,18 +305,83 @@ html, html body {
 }
 
 /* line 27, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
-.admin-panel {
+#header {
   position: absolute;
-  top: 3em;
-  left: 3em;
+  top: 0;
+  left: 0;
+  height: 5em;
+  width: 100%;
   z-index: 500;
+  border-bottom: 2px solid #ddd;
+  background: #fff;
 }
-/* line 33, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
-.admin-panel a {
+/* line 37, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo {
   display: block;
+  float: left;
+  height: 100%;
+}
+/* line 42, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo img {
+  position: absolute;
+  height: 20px;
+  transition: all .1s;
+  -moz-transition: all .1s;
+  -ms-transition: all .1s;
+  -webkit-transition: all .1s;
+}
+/* line 51, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo img:first-child {
+  top: 15px;
+}
+/* line 55, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo img:nth-child(2) {
+  top: 20px;
+}
+/* line 59, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo img:nth-child(3) {
+  top: 25px;
+}
+/* line 63, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo img:last-child {
+  top: 30px;
+}
+/* line 67, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo h1 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.5em;
+  margin-left: 50px;
+  line-height: 3.3333333em;
+}
+/* line 78, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo:hover img:first-child {
+  top: 5px;
+}
+/* line 82, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo:hover img:nth-child(2) {
+  top: 17px;
+}
+/* line 86, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo:hover img:nth-child(3) {
+  top: 27px;
+}
+/* line 90, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .logo:hover img:last-child {
+  top: 40px;
+}
+/* line 95, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .admin-panel {
+  height: 100%;
+  position: relative;
+  float: right;
+}
+/* line 100, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .admin-panel a {
+  display: inline-block;
   text-decoration: none;
   color: #000;
-  border: 2px solid #000;
-  margin: 1em 0;
-  padding: .5em 1em;
+  margin: 1em;
+  line-height: 3em;
+  padding: 0 1em;
 }

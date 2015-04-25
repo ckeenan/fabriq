@@ -5,7 +5,7 @@
 
 
 #signup {
-	padding-top: 8em;
+	padding-top: 5em;
 
 	label {
 		margin-top: 1em;
@@ -30,10 +30,14 @@
 }
 
 #persona {
-	padding: 0 0 5em;
+	padding: 5em 0;
 
 	.content {
 		padding-top: 3em;
+
+		h3 {
+			margin: 0;
+		}
 
 		.rep {
 			margin-top: 3em;

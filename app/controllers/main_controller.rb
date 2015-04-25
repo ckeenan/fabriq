@@ -1,7 +1,6 @@
 class MainController < ApplicationController
   def index
-  	@top_reps = User.all.order('reputation DESC').limit(6)
-  	@mystery = User.all.order(:reputation).limit(4)
+  	@top_reps = User.all.order('reputation DESC').limit(5)
   end
 
   def invite

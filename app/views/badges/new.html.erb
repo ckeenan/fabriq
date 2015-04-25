@@ -1,0 +1,16 @@
+<div id="badge">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<%= form_for(@badge) do |f| %>
+					<%= f.label :name %>
+					<%= f.text_field :name, class: "form-control" %>
+					<%= f.label :icon %>
+					<%= f.text_field :icon, class: "form-control" %>
+
+					<%= f.submit "Create Badge" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

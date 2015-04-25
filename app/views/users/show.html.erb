@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="heading col-md-8 col-md-offset-2">
-				<h1>My Persona</h1>
+				<% if @user == current_user %><h1>My Persona</h1><% else %><h1>About This Creature</h1><% end %>
 			</div>
 		</div>
 		<div class="content row">
@@ -25,12 +25,14 @@
 				</div>
 			</div>
 			<div class="col-md-5 col-md-offset-1">
+				<h3><%= @user.name %></h3>
 				<p>
 					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 				</p>
 				<div class="button-container">
-					<a href="#" class="button save">Beam 'Reps'</a>
-					<a href="#" class="button save">Burn 'Reps'</a>
+					<%= link_to "Beam 5", beamfive_user_path(@user), method: "put", class: "button save" %>
+					<%= link_to "Beam 10", beamten_user_path(@user), method: "put", class: "button save" %>
+					<%= link_to "Beam 15", beamfif_user_path(@user), method: "put", class: "button save" %>
 				</div>
 				<div class="row top-reps">
 					<div class="col-sm-12">

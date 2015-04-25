@@ -6,28 +6,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-5 col-md-offset-1">
-				<div class="top-reps row">
-					<div class="col-sm-12">
-						<div class="row">
-							<div class="col-sm-12">
-								<h3>Top reputations in my area</h3>
-							</div>
-						</div>
-
-						<div class="row">
-							<% @top_reps.each do |rep| %>
-								<div class="item col-sm-4">
-									<img src="<%= rep.avatar.to_s %>" />
-									<h4><a href="/users/<%= rep.id %>"><%= rep.name %></a></h4>
-									<p>Lorem Ipsum</p>
-								</div>
-							<% end %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-5">
+			<div class="col-md-10 col-md-offset-1">
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 				</p>
@@ -37,20 +16,22 @@
 				</a>
 			</div>
 		</div>
-		<div class="row" style="margin-top: 5em;">
+		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="top-reps row">
 					<div class="col-sm-12">
 						<div class="row">
-							<div class="col-sm-12">
-								<h3>Featured Mysteryland reps</h3>
+							<div class="col-md-10 col-md-offset-1">
+								<h3>Main Reps</h3>
 							</div>
 						</div>
+
 						<div class="row">
-							<% @mystery.each do |mystery| %>
-								<div class="item col-sm-6">
-									<img src="<%= mystery.avatar.to_s %>" />
-									<h4><a href="/users/<%= mystery.id %>"><%= mystery.name %></a></h4>
+							<div class="col-md-1"></div>
+							<% @top_reps.each do |rep| %>
+								<div class="item col-md-2">
+									<img src="<%= rep.avatar.to_s %>" />
+									<h4><a href="/users/<%= rep.id %>"><%= rep.name %></a></h4>
 									<p>Lorem Ipsum</p>
 								</div>
 							<% end %>

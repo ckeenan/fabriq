@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
 
+  get 'badges/index'
+
+  get 'badges/new'
+
   get 'main/index'
   get 'main/about'
   get 'main/explore'
   get 'main/invite'
 
-  resources :users
+  resources :users do
+    member do
+      put :beamfive, :beamten, :beamfif
+    end
+  end
+
   resources :invites
+  resources :badges  
   resources :sessions, only: [:new, :create, :destroy]
 
   get "sessions/new"

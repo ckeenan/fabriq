@@ -23,18 +23,86 @@ html, html body {
 
 
 
-.admin-panel {
+#header {
 	position: absolute;
-	top: 3em;
-	left: 3em;
+	top: 0;
+	left: 0;
+	height: 5em;
+	width: 100%;
 	z-index: 500;
+	border-bottom: 2px solid #ddd;
+	background: #fff;
 
-	a {
+	.logo {
 		display: block;
-		text-decoration: none;
-		color: #000;
-		border: 2px solid #000;
-		margin: 1em 0;
-		padding: .5em 1em;
+		float: left;
+		height: 100%;
+
+		img {
+			position: absolute;
+			height: 20px;
+			transition: all .1s;
+			-moz-transition: all .1s;
+			-ms-transition: all .1s;
+			-webkit-transition: all .1s;
+		}
+
+		img:first-child {
+			top: 15px;
+		}
+
+		img:nth-child(2) {
+			top: 20px;
+		}
+
+		img:nth-child(3) {
+			top: 25px;
+		}
+
+		img:last-child {
+			top: 30px;
+		}
+		
+		h1 {
+			font-weight: bold;
+			margin: 0;
+			font-size: 1.5em;
+			margin-left: 50px;
+			line-height: 3.3333333em;
+		}	
+	}
+
+	.logo:hover {
+
+		img:first-child {
+			top: 5px;
+		}
+
+		img:nth-child(2) {
+			top: 17px;
+		}
+
+		img:nth-child(3) {
+			top: 27px;
+		}
+
+		img:last-child {
+			top: 40px;
+		}
+	}
+
+	.admin-panel {
+		height: 100%;
+		position: relative;
+		float: right;
+
+		a {
+			display: inline-block;
+			text-decoration: none;
+			color: #000;
+			margin: 1em;
+			line-height: 3em;
+			padding: 0 1em;
+		}
 	}
 }

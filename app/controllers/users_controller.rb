@@ -22,6 +22,36 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def beamfive
+    @current = current_user
+    @user = User.find(params[:id])
+    @user.reputation = @user.reputation + 5
+    @current.reputation = @current.reputation - 5
+    @current.save
+    @user.save
+    redirect_to @user, notice: "Thanks!"
+  end
+
+  def beamten
+    @current = current_user
+    @user = User.find(params[:id])
+    @user.reputation = @user.reputation + 10
+    @current.reputation = @current.reputation - 10
+    @current.save
+    @user.save
+    redirect_to @user, notice: "Thanks!"
+  end
+
+  def beamfif
+    @current = current_user
+    @user = User.find(params[:id])
+    @user.reputation = @user.reputation + 15
+    @current.reputation = @current.reputation - 15
+    @current.save
+    @user.save
+    redirect_to @user, notice: "Thanks!"
+  end
+
   # POST /users
   # POST /users.json
   def create

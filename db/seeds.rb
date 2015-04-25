@@ -22,3 +22,10 @@ User.create([
 	{name: "Plaza Central", email: "plaza@example.com", reputation: 35, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_09.jpg")), password: "admin", password_confirmation: "admin"},
 	{name: "Wildcard", email: "wildcard@example.com", reputation: 20, avatar: File.open(File.join(Rails.root, "/app/assets/images/trailblazer.jpg")), password: "admin", password_confirmation: "admin"}
 ])
+
+Badge.create([
+	{name: "Badge One", icon: "icon"},
+	{name: "Badge Two", icon: "icon"},
+	{name: "Badge Three", icon: "icon"},
+	{name: "Badge Four", icon: "icon"}
+])

@@ -37,7 +37,7 @@ class InvitesController < ApplicationController
 	end
 
 	def destroy
-		@micropost.destroy
+		@invite.destroy
 		redirect_to root_url
 	end
 

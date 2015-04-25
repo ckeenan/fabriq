@@ -5,6 +5,11 @@
 				<h1>Explore Fabriq</h1>
 			</div>
 		</div>
+		<div class="map row">
+			<div class="col-md-8 col-md-offset-2">
+				<div id="map-canvas" style="height: 15em; margin-bottom: 3em;"></div>
+			</div>
+		</div>
 		<div class="blocks row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="block">
@@ -29,15 +34,59 @@
 				</div>
 			</div>
 		</div>
-		<div class="more-info row">
-			<div class="item col-md-4 col-md-offset-2">
-				<i class="fa fa-globe"></i>
-				<p>What's happening where</p>
-			</div>
-			<div class="item col-md-4">
-				<span class="glyphicon glyphicon-send"></span>
-				<p>Invite and send reps to cool people</p>
+		<div class="blocks row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="block">
+					<i class="fa fa-globe"></i>
+					<h3>What's happening</h3>
+				</div>
+				<div class="block">
+					<span class="glyphicon glyphicon-send"></span>
+					<h3>Invite cool people</h3>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+
+$(document).ready(function() {
+	function initialize() {
+        var mapOptions = {
+          center: { lat: 40.720500, lng: -73.961654},
+          zoom: 12,
+          scrollwheel: false,
+          navigationControl: false,
+          mapTypeControl: false,
+    	  scaleControl: false,
+    	  disableDefaultUI: true,
+          mapTypeControlOptions: {
+		  	mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+		  }
+        };
+
+        var stylesArray = [
+	      	{
+			    stylers: [
+			      { "hue": "#e52749" },
+			      { "lightness": -2 },
+			      { "gamma": 1.51 }
+			    ]
+	  		}
+        ]
+
+        var styledMap = new google.maps.StyledMapType(stylesArray,
+    		{name: "Styled Map"});
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        map.mapTypes.set('map_style', styledMap);
+  		map.setMapTypeId('map_style');
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+});
+
+</script>
