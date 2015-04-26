@@ -41,7 +41,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts_as_votable (0.10.0)
     arel (6.0.0)
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
@@ -264,7 +263,6 @@ PLATFORMS
 DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
-  acts_as_votable (~> 0.10.0)
   bcrypt-ruby
   byebug
   carrierwave
