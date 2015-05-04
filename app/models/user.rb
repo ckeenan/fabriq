@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	attr_accessible :name, :email, :reputation, :avatar, :password, :password_confirmation
+	attr_accessible :name, :email, :reputation, :avatar, :password, :password_confirmation, :tribe_id
+  belongs_to :tribes
 	has_secure_password
   mount_uploader :avatar, AvatarUploader
 

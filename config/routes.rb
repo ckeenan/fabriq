@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'badges/index'
-
-  get 'badges/new'
-
   get 'main/index'
   get 'main/about'
   get 'main/explore'
@@ -15,8 +11,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tribes do
+    member do
+      put :jointribe
+    end
+  end
+
   resources :invites
-  resources :badges  
+  resources :badges
   resources :sessions, only: [:new, :create, :destroy]
 
   get "sessions/new"

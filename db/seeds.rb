@@ -10,10 +10,10 @@
 
 
 User.create([
-	{name: "Admin", email: "admin@example.com", reputation: 20, avatar: File.open(File.join(Rails.root, "/app/assets/images/avatar.jpg")), password: "admin", password_confirmation: "admin"},
-	{name: "Sean Carter", email: "sean@example.com", reputation: 50, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_01.jpg")), password: "admin", password_confirmation: "admin"},
-	{name: "Stephen Hawking", email: "stephen@example.com", reputation: 40, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_02.jpg")), password: "admin", password_confirmation: "admin"},
-	{name: "Noam Chomsky", email: "noam@example.com", reputation: 35, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_03.jpg")), password: "admin", password_confirmation: "admin"},
+	{name: "Admin", email: "admin@example.com", reputation: 20, avatar: File.open(File.join(Rails.root, "/app/assets/images/avatar.jpg")), password: "admin", password_confirmation: "admin", tribe_id: 1},
+	{name: "Sean Carter", email: "sean@example.com", reputation: 50, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_01.jpg")), password: "admin", password_confirmation: "admin", tribe_id: 2},
+	{name: "Stephen Hawking", email: "stephen@example.com", reputation: 40, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_02.jpg")), password: "admin", password_confirmation: "admin", tribe_id: 1},
+	{name: "Noam Chomsky", email: "noam@example.com", reputation: 35, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_03.jpg")), password: "admin", password_confirmation: "admin", tribe_id: 2},
 	{name: "Camping Circus", email: "camping@example.com", reputation: 15, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_04.jpg")), password: "admin", password_confirmation: "admin"},
 	{name: "Johnny Cash", email: "johnny@example.com", reputation: 5, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_05.jpg")), password: "admin", password_confirmation: "admin"},
 	{name: "Trailblazers", email: "admin@example.com", reputation: 20, avatar: File.open(File.join(Rails.root, "/app/assets/images/persona_06.jpg")), password: "admin", password_confirmation: "admin"},
@@ -28,4 +28,9 @@ Badge.create([
 	{name: "Badge Two", icon: "icon"},
 	{name: "Badge Three", icon: "icon"},
 	{name: "Badge Four", icon: "icon"}
+])
+
+Tribe.create([
+	{name: "Tribe of One", desc: "This is the first tribe."},
+	{name: "Tribe of Two", desc: "This is the second tribe."}
 ])

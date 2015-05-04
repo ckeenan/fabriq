@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :avatar
       t.float :reputation
+      t.integer :tribe_id
 
       t.timestamps null: false
     end

@@ -16,7 +16,21 @@
 				<% end %>
 
 				<div class="rep">
-					<p><%= @user.reputation.round %></p>
+					<% if @user.reputation.round > 50 %>
+						<img width="30" src="/assets/star.jpg" />
+					<% end %>
+					<% if @user.reputation.round > 40 %>
+						<img width="30" src="/assets/star.jpg" />
+					<% end %>
+					<% if @user.reputation.round > 30 %>
+						<img width="30" src="/assets/star.jpg" />
+					<% end %>
+					<% if @user.reputation.round > 20 %>
+						<img width="30" src="/assets/star.jpg" />
+					<% end %>
+					<p>
+						<%= @user.reputation.round %>
+					</p>
 					<h4>My rep</h4>
 				</div>
 				<div class="tribe">

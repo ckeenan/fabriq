@@ -1,0 +1,13 @@
+<div id="tribe">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<h3><%= @tribe.name %>&ensp;<%= link_to "Join This Tribe", jointribe_tribe_path(@tribe), method: "put", class: "button save" %></h3>
+				<h5><%= @tribe.desc %></h5>
+				<br><br>
+				<h5>User List</h5>
+				<%= render @tribals %>
+			</div>
+		</div>
+	</div>
+</div>
