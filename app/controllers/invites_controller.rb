@@ -1,4 +1,5 @@
 class InvitesController < ApplicationController
+	autocomplete :user, :name
 
 	def index
 	end

@@ -213,6 +213,8 @@ GEM
       loofah (~> 2.0)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
+    rails4-autocomplete (1.1.1)
+      rails (>= 3.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -275,6 +277,7 @@ DEPENDENCIES
   protected_attributes
   rails (= 4.2.0)
   rails-observers
+  rails4-autocomplete
   rails_12factor
   rails_serve_static_assets
   sass-rails (~> 5.0)

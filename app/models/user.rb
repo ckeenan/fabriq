@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
 	before_save { self.email = email.downcase }
+  before_create :add_reputation
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

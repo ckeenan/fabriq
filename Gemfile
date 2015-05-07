@@ -58,3 +58,5 @@ gem 'mini_magick'
 gem "fog"
 
 gem "rails_serve_static_assets"
+
+gem 'rails4-autocomplete'

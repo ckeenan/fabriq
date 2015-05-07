@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'main/about'
   get 'main/explore'
   get 'main/invite'
+  get 'main/home'
 
   resources :users do
     member do
@@ -16,8 +17,7 @@ Rails.application.routes.draw do
       put :jointribe
     end
   end
-
-  resources :invites
+  
   resources :badges
   resources :sessions, only: [:new, :create, :destroy]
 

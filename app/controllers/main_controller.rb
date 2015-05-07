@@ -6,5 +6,13 @@ class MainController < ApplicationController
   def invite
   	@invite = Invite.new
   end
+
+  def home
+  	render :layout => "landing"
+  end
+
+  def explore
+    
+  end
   
 end
