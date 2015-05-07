@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   
   resources :badges
+  resources :invites
   resources :sessions, only: [:new, :create, :destroy]
 
   get "sessions/new"
