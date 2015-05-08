@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
 	before_save { self.email = email.downcase }
   before_create :add_reputation
+  before_create :add_avatar
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -14,6 +15,12 @@ class User < ActiveRecord::Base
   def add_reputation
     if self.reputation == nil
       self.reputation = 0
+    end
+  end
+
+  def add_avatar
+    if self.avatar == nil
+      self.avatar = "http://placehold.it/150x150"
     end
   end
 

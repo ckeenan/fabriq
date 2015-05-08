@@ -62,7 +62,7 @@
 
 $(document).ready(function() {
 
-    var newArray = <%=raw @users %>
+    var newArray = <%=raw @array %>
 
     $( "#userauto" ).autocomplete({
       source: newArray,
@@ -70,7 +70,7 @@ $(document).ready(function() {
     }).data('ui-autocomplete')._renderItem = function(ul, item) {
         return $('<li></li>')
             .data('item.autocomplete', item)
-            .append('<a href="/users/' + item[2] + '"><img width="50" src="/assets/' + item[1] + '" />' + item[0] + '<br></a>')
+            .append('<a href="/users/' + item[2] + '"><img width="50" src="' + item[1] + '" />' + item[0] + '<br></a>')
             .appendTo(ul);
     };
 

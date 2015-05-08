@@ -12,7 +12,8 @@ class MainController < ApplicationController
   end
 
   def explore
-    @users = User.all.pluck(:name, :avatar, :id)
+    @users = User.all
+    @array = @users.map{|f| [f.name, f.avatar.to_s, f.id]}
     @arrayb = ["Bryan", "Ashley", "Patrick", "Connor", "Carolyn"]
   end
   
