@@ -10,41 +10,49 @@
 				<div id="map-canvas" style="height: 15em; margin-bottom: 3em;"></div>
 			</div>
 		</div>
-
 		<div class="blocks row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-2">
 				<a href="/tribes" class="block">
 					<i class="fa fa-home"></i>
 					<h3>Tribes</h3>
 				</a>
+			</div>
+			<div class="col-md-2">
 				<div class="block">
 					<span class="glyphicon glyphicon-music"></span>
 					<h3>Artist/DJs</h3>
 				</div>
 			</div>
-		</div>
-		<div class="blocks row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-2">
 				<div class="block">
 					<span class="glyphicon glyphicon-cd"></span>
 					<h3>Stages</h3>
 				</div>
+			</div>
+			<div class="col-md-2">
 				<div class="block">
 					<i class="fa fa-users"></i>
 					<h3>Creatures</h3>
 				</div>
 			</div>
-		</div>
-		<div class="blocks row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-2">
 				<div class="block">
 					<i class="fa fa-globe"></i>
 					<h3>What's happening</h3>
 				</div>
+			</div>
+			<div class="col-md-2">
 				<div class="block">
 					<span class="glyphicon glyphicon-send"></span>
 					<h3>Invite cool people</h3>
 				</div>
+			</div>
+		</div>
+		<div class="search row">
+			<div class="col-md-8 col-md-offset-2">
+				<h3>Search Fabriq</h3>
+				<input id="userauto" placeholder="Search for creatures, places, things">
+				<div id="userresult"></div>
 			</div>
 		</div>
 	</div>
@@ -53,6 +61,18 @@
 <script>
 
 $(document).ready(function() {
+
+    var newArray = <%=raw @users %>
+
+    $( "#userauto" ).autocomplete({
+      source: newArray,
+      appendTo: ("#userresult")
+    }).data('ui-autocomplete')._renderItem = function(ul, item) {
+        return $('<li></li>')
+            .data('item.autocomplete', item)
+            .append('<a href="/users/' + item[2] + '"><img width="50" src="/assets/' + item[1] + '" />' + item[0] + '<br></a>')
+            .appendTo(ul);
+    };
 
 	function initialize() {
         var mapOptions = {

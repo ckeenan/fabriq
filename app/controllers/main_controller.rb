@@ -12,7 +12,8 @@ class MainController < ApplicationController
   end
 
   def explore
-    
+    @users = User.all.pluck(:name, :avatar, :id)
+    @arrayb = ["Bryan", "Ashley", "Patrick", "Connor", "Carolyn"]
   end
   
 end
