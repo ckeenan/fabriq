@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'newsletters/index'
+
+  get 'newsletters/edit'
+
   get 'main/index'
   get 'main/about'
   get 'main/explore'
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
   
   resources :badges
   resources :invites
+  resources :newsletters
   resources :sessions, only: [:new, :create, :destroy]
 
   get "sessions/new"

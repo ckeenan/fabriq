@@ -8,6 +8,7 @@ class MainController < ApplicationController
   end
 
   def home
+    @newsletter = Newsletter.new
   	render :layout => "landing"
   end
 

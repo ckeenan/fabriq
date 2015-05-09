@@ -1,0 +1,7 @@
+<%= form_for(@newsletter) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="col-sm-12">
+		<%= f.text_field :email, class: "form-control", placeholder: "add email..." %>
+		<%= f.submit "Keep me updated!", class: "save button" %>
+	</div>
+<% end %>
