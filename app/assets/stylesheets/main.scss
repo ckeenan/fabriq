@@ -244,6 +244,10 @@
 	margin:0;
 	position: relative;
 
+	h1, h2, h3, h4, p, span, a {
+		font-family: 'Kabel';
+	}
+
 	.landing {
 		height: 60em;
 		width: 100%;
@@ -274,6 +278,41 @@
 			font-size: 2.5em;
 		}
 
+		.tagline {
+			font-family: 'Kabel';
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 2.5em;
+			display: block;
+			padding: 0 60px;
+			margin-bottom: 3em;
+			position: relative;
+
+			.accent-left {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			.accent-right {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+
+		.more {
+			position: absolute;
+			bottom: 1em;
+			width: 10em;
+			left: 50%;
+			margin-left: -5em;
+			color: #fff;
+			font-size: 1.75em;
+			font-family: 'Kabel';
+			display: block;
+		}
+
 		.newsletter {
 			padding-top: 9em;
 
@@ -287,8 +326,12 @@
 					width: 60%;
 					display: inline-block;
 					float: left;
-					border: 0;
-					border-radius: 0;
+					color: #fff;
+					background: rgba(0,0,0,.5);
+					border-top: 2px solid #ccc;
+					border-left: 2px solid #ccc;
+					border-bottom: 2px solid #ccc;
+					border-radius: 5px 0 0 5px;
 				}
 
 				.button {
@@ -301,21 +344,139 @@
 					font-size: 1.2em;
 					line-height: 1.2em;
 					padding: .5em 1.5em;
+					border-radius: 0 5px 5px 0;
+					border-right: 2px solid #ccc;
+					border-top: 2px solid #ccc;
+					border-bottom: 2px solid #ccc;
 				}
 			}
 		}
 	}
 
-	h1 {
-		text-align: center;
+	#what {
+		padding: 10em 0;
+		border-bottom: 5px solid #eee;
+
+		h1 {
+			text-align: left;
+			font-weight: 600;
+		}
+
+		p {
+			text-align: left;
+			font-size: 1.5em;
+			line-height: 1.75em;
+			margin-bottom: 2em;
+		}
+
+		.image { 
+			text-align: center;
+			padding-top: 4em;
+
+			img {
+				width: 270px;
+				display: inline-block;
+				margin: auto;
+			}
+		}
 	}
 
-	h3 {
-		text-align: center;
+	#opensource {
+		padding: 10em 0;
+
+		h1 {
+			text-align: center;
+			font-weight: 600;
+		}
+
+		p {
+			text-align: center;
+			font-size: 1.75em;
+			line-height: 1.75em;
+			margin-bottom: 2em;
+		}
+
+		img {
+			width: 275px;
+			display: block;
+			margin: auto;
+		}
 	}
 
-	p {
-		text-align: center;
+	#how {
+		padding: 10em 0;
+		width: 100%;
+		background: url('/assets/landing_how_bg.jpg');
+		background-size: cover;
+		background-position: center bottom;
+
+		h1 {
+			text-align: center;
+			font-weight: 600;
+		}
+
+		p {
+			text-align: center;
+			font-size: 1.75em;
+			line-height: 1.75em;
+			margin-bottom: 2em;
+		}
+	}
+
+	#lounge {
+		padding: 10em 0;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		background: url('/assets/landing_lounge_bg.jpg');
+		background-size: cover;
+		background-position: center top;
+
+		h1 {
+			text-align: center;
+			font-weight: 600;
+			color: #fff;
+		}
+
+		p {
+			color: #fff;
+			text-align: center;
+			font-size: 1.75em;
+			line-height: 1.75em;
+			margin-bottom: 2em;
+		}
+
+		.rainbow-left {
+			position: absolute;
+			top: 3em;
+			left: -10em;
+			width: 423px;
+		}
+
+		.rainbow-right {
+			position: absolute;
+			top: -8em;
+			right: -9em;
+			width: 358px;
+		}
+	}
+
+	#author {
+		padding: 10em 0;
+
+		h1 {
+			text-align: center;
+			font-weight: 600;
+			color: #000;
+		}
+
+		p {
+			color: #000;
+			text-align: center;
+			font-size: 1.75em;
+			line-height: 1.75em;
+			margin-bottom: 2em;
+		}
 	}
 
 	.welcome {
