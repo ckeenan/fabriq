@@ -8,18 +8,25 @@
 		</div>
 		<div class="row">
 			<div class="form col-sm-4 col-sm-offset-4">
-			    <%= form_for(:session, url: sessions_path) do |f| %>
-
-			      <%= f.label :email %>
-			      <%= f.text_field :email, class: "form-control" %>
-
-			      <%= f.label :password %>
-			      <%= f.password_field :password, class: "form-control" %>
-
-			      <div class="button-container">
-			      	<%= f.submit "Sign in", class: "save button" %>
-			      </div>
-			    <% end %>
+				<div class="button-container">
+					<div class="result">
+					</div>
+					<dl>
+						<dt>
+							username
+						</dt>
+						<dd>
+							<%= tag "input", {"id"=> "signin_name", "type" => "text" } %>
+						</dd>
+						<dt>
+							password
+						</dt>
+						<dd>
+							<%= tag "input", {"id"=> "signin_password", "type" => "password"} %>
+						</dd>
+					</dl>
+					<%= tag "input", {"id"=> "signin", "type" => "button", "value" => "Sign in", "class" => "save button"} %>
+				</div>
 			</div>
 		</div>
 	</div>

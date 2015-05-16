@@ -7,35 +7,42 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
-			<%= form_for(@user) do |f| %>
-				<%= render 'shared/error_messages', object: f.object %>
-
-				<div class="row">
-					<div class="col-sm-12">
-					  <%= f.label :name %>
-					  <%= f.text_field :name, class: "form-control" %>
-					  <%= f.label :email %>
-					  <%= f.text_field :email, class: "form-control" %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12">
-					  <%= f.label :password %>
-					  <%= f.password_field :password, class: "form-control" %>
-					  <%= f.label :password_confirmation, "Password Confirmation" %>
-					  <%= f.password_field :password_confirmation, class: "form-control" %>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-12 col">
-						<div class="button-container">
-							<%= f.submit "Create", class: "save button" %>
-							<%= link_to 'Cancel', '/main/index', class: "cancel button" %>
+			<div class="row">
+				<div class="col-sm-12 col">
+					<div class="signup button-container">
+						<div class="result">
 						</div>
+						<dl>
+							<dt>
+								username
+							</dt>
+							<dd>
+							<%= tag "input", {"id"=> "name", "type" => "text" } %>
+							</dd>
+							<dt>
+								email
+							</dt>
+							<dd>
+								<%= tag "input", {"id"=> "email", "type" => "text"} %>
+							</dd>
+							<dt>
+								password
+							</dt>
+							<dd>
+								<%= tag "input", {"id"=> "password1", "type" => "password"} %>
+							</dd>
+							<dt>
+								confirm password
+							</dt>
+							<dd>
+								<%= tag "input", {"id"=> "password2", "type" => "password"} %>
+							</dd>
+						</dl>
+						<%= tag "input", {"id"=> "register", "type" => "button", "value"=>"Create", "class"=>"save button"} %>
+						<%= link_to 'Cancel', '/main/index', class: "cancel button" %>
 					</div>
 				</div>
-			<% end %>
+			</div>
 		</div>
 	</div>
 </div>
