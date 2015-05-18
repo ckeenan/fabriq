@@ -37,52 +37,6 @@ $(document).ready(function() {
 	  }
 	});
 
-	/*
-	 * Pending Transaction Listing
-	 */
-	var pendingIntervalId;
-	var pendingInterval = 5000;
-
-	function loadPending() {
-		// Detach the cloned el
-		var base = $('#pending #basePending').detach();
-		$('#pending').empty().append(base);
-
-		// if pending 
-		var txList = fw.txstore.txList;
-		var txDict = fw.txstore.txDict;
-
-		// For each pending tx clone the jquery object (for now) and update it's id to the tx id
-		for (var i = 0; i < txList.length; i++) {
-			var txid = txList[i];
-			var tx = txDict[txid];
-			var baseEl = $('#basePending').clone();
-			baseEl.attr('id', txid);
-			baseEl.css('display', 'inline');
-			//baseEl.find('span.three-quarters-loader').css('display','block');
-			baseEl.find('.pending-msg').text(tx.msgDict['pending']);
-			baseEl.appendTo('#pending');
-		}
-		// Set watch interval if needed and not already set
-		if (txList && txList.length && !pendingIntervalId)
-			pendingIntervalId = setInterval(checkPendingTransactions, pendingInterval);
-	}
-
-	function checkPendingTransactions() {
-		fw.txstore.checkAll(function(err, results) {
-			results.forEach(function(el) {
-				var txEl = $('#' + el.id);
-				txEl.find('span.three-quarters-loader').css('display', 'none');
-				if (el.result == 'success')
-					txEl.find('span.glyphicon-ok').css('display', 'inline');
-				else if (el.result == 'fail')
-					txEl.find('span.glyphicon-remove').css('display', 'inline');
-				txEl.find('.pending-msg').text(txEl.msg);
-			});
-			var txList = fw.txstore.txList;
-			if (!txList || !txList.length) clearInterval(pendingIntervalId);
-		});
-	}
 
 	/*
 	 * User Registration Methods
@@ -153,7 +107,6 @@ $(document).ready(function() {
 				else if (id) {
 					$.post('/sessions', {id: id}, function() {
 						clearInterval(checkRegId);
-						enableSignup();
 						localStorage.setItem('registering', '');
 						window.location.href = '/main/index';
 					});
@@ -200,4 +153,64 @@ $(document).ready(function() {
 	if (regTx && regTx.length) disableSignup();
 	loadPending();
 });
+
+	/*
+	 * Pending Transaction Listing
+	 */
+function loadPending() {
+	// Detach the cloned el
+	var base = $('#pending #basePending').detach();
+	$('#pending').empty().append(base);
+
+	// if pending 
+	var txList = fw.txstore.txList;
+	var txDict = fw.txstore.txDict;
+
+	// For each pending tx clone the jquery object (for now) and update it's id to the tx id
+	for (var i = 0; i < txList.length; i++) {
+		var txid = txList[i];
+		var tx = txDict[txid];
+		var baseEl = $('#basePending').clone();
+		baseEl.attr('id', txid);
+		baseEl.css('display', 'block');
+		baseEl.find('.pending-msg').text(tx.msgDict['pending']);
+		baseEl.appendTo('#pending');
+	}
+	// Set watch interval if needed and not already set
+	if (txList && txList.length && !pendingIntervalId)
+		pendingIntervalId = setInterval(checkPendingTransactions, pendingInterval);
+}
+
+var pendingIntervalId;
+var pendingInterval = 5000;
+
+
+function checkPendingTransactions() {
+	fw.txstore.checkAll(function(err, results) {
+		results.forEach(function(el) {
+			var txEl = $('#' + el.id);
+			txEl.find('span.three-quarters-loader').css('display', 'none');
+			if (el.result == 'success')
+				txEl.find('span.glyphicon-ok').css('display', 'inline');
+			else if (el.result == 'fail')
+				txEl.find('span.glyphicon-remove').css('display', 'inline');
+			txEl.find('.pending-msg').text(txEl.msg);
+		});
+		var txList = fw.txstore.txList;
+		if (!txList || !txList.length) clearInterval(pendingIntervalId);
+	});
+}
+
+function beam(user, amount) {
+	fw.beam(user, amount, function(err, data) {
+		loadPending();
+	});
+}
+
+function link(user) {
+	console.log("LINK", user);
+	fw.link(user, function(data) {
+		console.log("Link", user, data);
+	});
+}
 

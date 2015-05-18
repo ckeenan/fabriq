@@ -39,14 +39,19 @@
 				</div>
 			</div>
 			<div class="col-md-5 col-md-offset-1">
-				<h3><%= @user.name %></h3>
+				<h3>
+					<%= @user.name %>
+				</h3>
 				<p>
 					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 				</p>
 				<div class="button-container">
-					<%= link_to "Beam 5", beamfive_user_path(@user), method: "put", class: "button save" %>
-					<%= link_to "Beam 10", beamten_user_path(@user), method: "put", class: "button save" %>
-					<%= link_to "Beam 15", beamfif_user_path(@user), method: "put", class: "button save" %>
+					<% if @user != current_user %>
+						<input class="button save" type="button" value="link" onclick="link('<%= @user.name %>');">
+						<input class="button save" type="button" value="Beam 5" onclick="beam('<%= @user.name %>', 5);">
+						<input class="button save" type="button" value="Beam 10" onclick="beam('<%= @user.name %>', 10);">
+						<input class="button save" type="button" value="Beam 15" onclick="beam('<%= @user.name %>', 15);">
+					<% end %>
 				</div>
 				<div class="row top-reps">
 					<div class="col-sm-12">
