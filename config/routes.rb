@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'main/invite'
   get 'main/home'
 
+
   resources :users do
     member do
       put :beamfive, :beamten, :beamfif

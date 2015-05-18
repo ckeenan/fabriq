@@ -377,6 +377,10 @@
 			margin-bottom: 2em;
 		}
 
+		a {
+
+		}
+
 		.image { 
 			text-align: center;
 			padding-top: 4em;
@@ -391,6 +395,7 @@
 
 	#opensource {
 		padding: 10em 0;
+		text-align: center;
 
 		h1 {
 			text-align: center;
@@ -404,6 +409,14 @@
 			margin-bottom: 2em;
 		}
 
+		a {
+			display: inline-block;
+			font-size: 1.5em;
+			text-align: center;
+			padding: 1em 3em;
+			margin: 1em auto;
+		}
+
 		img {
 			width: 275px;
 			display: block;
@@ -413,10 +426,12 @@
 
 	#how {
 		padding: 10em 0;
+		height: 50em;
 		width: 100%;
+		position: relative;
 		background: url('/assets/landing_how_bg.jpg');
 		background-size: cover;
-		background-position: center bottom;
+		background-position: left bottom;
 
 		h1 {
 			text-align: center;
@@ -432,18 +447,25 @@
 	}
 
 	#lounge {
-		padding: 10em 0;
+		padding: 8em 0;
+		height: 100em;
 		width: 100%;
-		overflow: hidden;
 		position: relative;
 		background: url('/assets/landing_lounge_bg.jpg');
 		background-size: cover;
-		background-position: center top;
+		background-position: left top;
 
 		h1 {
 			text-align: center;
 			font-weight: 600;
 			color: #fff;
+		}
+
+		h3 {
+			text-align: center;
+			font-weight: 600;
+			color: #fff;
+			margin-bottom: 2em;
 		}
 
 		p {
@@ -467,33 +489,24 @@
 			right: -9em;
 			width: 358px;
 		}
-	}
 
-	#author {
-		padding: 10em 0;
+		.author {
+			padding: 25em 0 8em;
 
-		h1 {
-			text-align: center;
-			font-weight: 600;
-			color: #000;
-		}
 
-		p {
-			color: #000;
-			text-align: center;
-			font-size: 1.75em;
-			line-height: 1.75em;
-			margin-bottom: 2em;
+			p {
+				color: #fff;
+				text-align: center;
+				font-size: 2.5em;
+				line-height: 1.75em;
+				margin-bottom: 2em;
+			}
 		}
 	}
 
 	.welcome {
 
 		a {
-			display: inline-block;
-			color: #fff;
-			background: #5ea9dd;
-			padding: 1em 2em;
 
 			i {
 				margin-right: 2em;
