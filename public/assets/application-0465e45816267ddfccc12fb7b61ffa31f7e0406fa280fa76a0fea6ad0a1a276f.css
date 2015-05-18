@@ -485,18 +485,52 @@
   width: 358px;
 }
 /* line 493, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
-#home #lounge .author {
-  padding: 25em 0 8em;
+#home #lounge .activities {
+  padding: 5em 0;
 }
-/* line 497, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
-#home #lounge .author p {
+/* line 496, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#home #lounge .activities ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+/* line 502, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#home #lounge .activities ul li {
+  display: block;
+  margin: 1em 0;
+  color: #fff;
+  font-family: 'Kabel';
+  line-height: 1em;
+  font-size: 1.75em;
+}
+/* line 513, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#home #lounge .rep {
+  padding: 5em 0;
+}
+/* line 517, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#home #lounge .rep p {
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  line-height: 1.75em;
+  margin-bottom: 2em;
+}
+/* line 527, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#home #author {
+  padding: 12em 0 0em;
+  border-top: 4px solid #333;
+  background: #000;
+}
+/* line 532, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+#home #author p {
   color: #fff;
   text-align: center;
   font-size: 2.5em;
   line-height: 1.75em;
-  margin-bottom: 2em;
+  padding-bottom: 2em;
 }
-/* line 511, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
+/* line 545, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/main.scss */
 #home .welcome a i {
   margin-right: 2em;
 }
