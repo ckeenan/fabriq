@@ -12,26 +12,22 @@
 
 				<div class="row">
 					<div class="col-sm-12">
-					  <%= f.label :name %>
-					  <%= f.text_field :name, class: "form-control" %>
-					  <%= f.label :email %>
-					  <%= f.text_field :email, class: "form-control" %>
+					  <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+					  <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-					  <%= f.label :password %>
-					  <%= f.password_field :password, class: "form-control" %>
-					  <%= f.label :password_confirmation, "Password Confirmation" %>
-					  <%= f.password_field :password_confirmation, class: "form-control" %>
+					  <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+					  <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: "form-control" %>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-sm-12 col">
-						<div class="button-container">
-							<%= f.submit "Create", class: "save button" %>
-							<%= link_to 'Cancel', '/main/index', class: "cancel button" %>
+						<div class="button-container row">
+							<div class="col-xs-6"><%= f.submit "Create", class: "save button" %></div>
+							<div class="col-xs-6"><%= link_to 'Cancel', '/main/index', class: "cancel button" %></div>
 						</div>
 					</div>
 				</div>

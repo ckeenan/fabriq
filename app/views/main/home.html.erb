@@ -2,18 +2,19 @@
 	<div class="landing">
 		<h1>Welcome to Fabriq</h1>
 		<h2>Group currency generated and distributed among social networks</h2>
-		<div class="newsletter">
+		<div class="landing-home">
 			<div class="container">
 				<div class="col-md-8 col-md-offset-2 tagline">
 					<img class="accent-left" src="/assets/landing_accent_left.png"/>Beam and Earn Reps<br>at Mysteryland and Other Events<img class="accent-right" src="/assets/landing_accent_right.png" />
 				</div>
 			</div>
-			<div class="newsletter-form container">
+			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 col-sm-12">
-						<%= render 'newsletters/new' %>
-					</div>
+					<a href="/users/new" class="create">
+						<h3><i class="fa fa-plus"></i>Create a Fabriq Persona</h3>
+					</a>
 				</div>
+				
 			</div>
 		</div>
 		<!-- <img class="rep1" src="/assets/rep_gif.gif" /> -->
@@ -54,6 +55,15 @@
 					<div class="sponsor">
 						<img src="/assets/sponsors_woodstock.jpg" />
 					</div>
+				</div>
+			</div>
+			<div class="newsletter row">
+				<div class="col-md-8 col-md-offset-2 col-sm-12">
+					<h1>Keep in Touch?</h1>
+					<p>
+						Add your email to our newsletter and we will be sure to update you with new releases, special offers, and cool events in the future integrated with Fabriq.
+					</p>
+					<%= render 'newsletters/new' %>
 				</div>
 			</div>
 		</div>
@@ -132,11 +142,12 @@
 		</div>
 	</div>
 	<div id="author">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<p>Fabriq is a an open source project funded with a grant from the MIT-Stanford Blockchain hackathon. Read the original white paper <a href="/fabriq_whitepaper.pdf">here.</a></p>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<p>Fabriq is a an open source project funded with a grant from the MIT-Stanford Blockchain hackathon. Read the original white paper <a href="/fabriq_whitepaper.pdf">here.</a></p>
+				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 </div>

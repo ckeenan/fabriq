@@ -137,6 +137,75 @@
 #explore {
 	padding: 5em 0;
 
+	.top-reps {
+		padding-top: 5em;
+		text-align: center;
+		word-spacing: -4px;
+
+		.item {
+			top: 0;
+			left: 0;
+			width: 17%;
+			display: inline-block;
+			padding: .75em 0;
+			margin-left: 1.5%;
+			margin-right: 1.5%;
+			margin-bottom: 1em;
+			position: relative;
+			background: #fafafa;
+			border: 1px solid #ddd;
+			text-decoration: none;
+			transition: all .1s ease-in-out;
+			-moz-transition: all .1s ease-in-out;
+			-ms-transition: all .1s ease-in-out;
+			-webkit-transition: all .1s ease-in-out;
+
+			img {
+				width: 90%;
+				margin: auto;
+				display: block;
+			}
+
+			.info {
+				position: relative;
+				width: 90%;
+				text-decoration: none;
+				display: block;
+				margin: auto;
+				text-align: left;
+
+				.inner {
+					padding-top: .5em;
+
+					h4 {
+						font-size: 1.25em;
+						font-weight: bold;
+						margin: .5em 0 0 0;
+						color: #333;
+						font-family: 'Kabel';
+						font-weight: 600;
+					}
+
+					p {
+						font-size: .9em;
+						margin: .25em 0 0 0;
+						color: #333;
+
+						i {
+							margin-right: .5em;
+						}
+					}
+				}
+			}
+		}
+
+		.item:hover {
+			top: -2px;
+			left: -2px;
+			box-shadow: 8px 8px 14px -3px #ddd;
+		}
+	}
+
 	.blocks {
 
 		.block {
@@ -285,7 +354,7 @@
 			font-size: 2.5em;
 			display: block;
 			padding: 0 60px;
-			margin-bottom: 3em;
+			margin-bottom: 1em;
 			position: relative;
 
 			.accent-left {
@@ -321,48 +390,46 @@
 			width: 100px;
 		}
 
-		.newsletter {
-			padding-top: 9em;
+		.landing-home {
+			padding-top: 7em;
+			text-align: center;
 
-			.newsletter-form {
+			.create {
+				background: rgba(0,0,0,.75);
+				border: 3px solid #fff;
+				display: inline-block;
+				margin: 6em auto 5em;
+				text-decoration: none;
+				padding: 1.5em 2em 1em;
+				border-radius: 1em;
 
-				.form-control {
-					font-size: 1.2em;
-					line-height: 1.2em;
-					padding: .5em 1.5em;
-					height: auto;
-					width: 60%;
+				i {
 					display: inline-block;
-					float: left;
+					font-size: 1em;
+					margin-right: .5em;
 					color: #fff;
-					background: rgba(0,0,0,.5);
-					border-top: 2px solid #ccc;
-					border-left: 2px solid #ccc;
-					border-bottom: 2px solid #ccc;
-					border-radius: 5px 0 0 5px;
 				}
 
-				.button {
-					width: 39%;
-					float: left;
-					display: inline-block;
-					background: orange;
-					border: 0;
-					text-align: center;
-					font-size: 1.2em;
-					line-height: 1.2em;
-					padding: .5em 1.5em;
-					border-radius: 0 5px 5px 0;
-					border-right: 2px solid #ccc;
-					border-top: 2px solid #ccc;
-					border-bottom: 2px solid #ccc;
+				h3 {
+					color: #fff;
+					margin: 0;
+					font-weight: 600;
+					text-transform: capitalize;
+				}
+			}
+
+			.create:hover {
+				border: 3px solid #e6294a;
+
+				i, h3 {
+					color: #e6294a;
 				}
 			}
 		}
 	}
 
 	#what {
-		padding: 6em 0;
+		padding: 8em 0;
 		border-bottom: 5px solid #eee;
 
 		h1 {
@@ -418,6 +485,50 @@
 			opacity: 1;
 			-webkit-filter: grayscale(0%);
 			filter: grayscale(0%);
+		}
+
+		.newsletter {
+			padding-top: 9em;
+			padding-bottom: 5em;
+
+			.form-control {
+				font-size: 1.2em;
+				line-height: 1.2em;
+				padding: .6em 1.5em .5em 0;
+				height: auto;
+				width: 60%;
+				display: inline-block;
+				float: left;
+				color: #333;
+				border-top: 0;
+				border-left: 0;
+				border-right: 0;
+				border-bottom: 2px solid #ccc;
+				border-radius: 0;
+				box-shadow: 0 0 0;
+			}
+
+			.button {
+				width: 35%;
+				float: left;
+				display: inline-block;
+				background: transparent;
+				border: 0;
+				color: #ccc;
+				text-align: center;
+				font-size: 1.2em;
+				line-height: 1.2em;
+				padding: .5em 1.5em;
+				margin-left: 2em;
+				border-radius: 5px;
+				border: 2px solid #ccc;
+			}
+
+			.button:hover {
+				color: #fff;
+				background: #e6294a;
+				border: 2px solid #e6294a;
+			}
 		}
 	}
 

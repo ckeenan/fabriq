@@ -1,14 +1,22 @@
 <div id="explore">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2 heading">
-				<h1>Explore Fabriq</h1>
+			<div class="col-md-offset-1 col-md-10">
+				<h3>Top Reps</h3>
 			</div>
 		</div>
-		<div class="map row">
-			<div class="col-md-8 col-md-offset-2">
-				<div id="map-canvas" style="height: 15em; margin-bottom: 3em;"></div>
-			</div>
+		<div class="top-reps row">
+			<% @top_reps.each do |rep| %>
+				<a href="/users/<%= rep.id %>" class="item">
+					<img src="<%= rep.avatar.to_s %>" />
+					<div class="info">
+						<div class="inner">
+							<h4><%= rep.name %></h4>
+							<p><i class="fa fa-star-o"></i><%= rep.reputation.round %></p>
+						</div>
+					</div>
+				</a>
+			<% end %>
 		</div>
 		<div class="blocks row">
 			<div class="col-md-2">
@@ -41,12 +49,6 @@
 					<h3>What's happening</h3>
 				</div>
 			</div>
-			<div class="col-md-2">
-				<div class="block">
-					<span class="glyphicon glyphicon-send"></span>
-					<h3>Invite cool people</h3>
-				</div>
-			</div>
 		</div>
 		<div class="search row">
 			<div class="col-md-8 col-md-offset-2">
@@ -73,41 +75,6 @@ $(document).ready(function() {
             .append('<a href="/users/' + item[2] + '"><img width="50" src="' + item[1] + '" />' + item[0] + '<br></a>')
             .appendTo(ul);
     };
-
-	function initialize() {
-        var mapOptions = {
-          center: { lat: 40.720500, lng: -73.961654},
-          zoom: 12,
-          scrollwheel: false,
-          navigationControl: false,
-          mapTypeControl: false,
-    	  scaleControl: false,
-    	  disableDefaultUI: true,
-          mapTypeControlOptions: {
-		  	mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-		  }
-        };
-
-        var stylesArray = [
-	      	{
-			    stylers: [
-			      { "hue": "#e52749" },
-			      { "lightness": -2 },
-			      { "gamma": 1.51 }
-			    ]
-	  		}
-        ]
-
-        var styledMap = new google.maps.StyledMapType(stylesArray,
-    		{name: "Styled Map"});
-
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-
-        map.mapTypes.set('map_style', styledMap);
-  		map.setMapTypeId('map_style');
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
 
 });
 

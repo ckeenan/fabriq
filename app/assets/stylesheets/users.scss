@@ -5,10 +5,61 @@
 
 
 #signup {
-	padding-top: 5em;
+	padding-top: 7em;
+
+	h1 {
+		font-family: 'Kabel';
+	}
+
+	input {
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		border-bottom: 2px solid #ccc;
+		font-size: 1.2em;
+		margin-top: 1.5em;
+		padding-left: 0;
+		border-radius: 0;
+		box-shadow: 0 0 0;
+	}
 
 	label {
 		margin-top: 1em;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	p {
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.button-container {
+		padding-top: 2em;
+		padding-bottom: 2em;
+		text-align: center;
+
+		.button {
+			margin-top: 0;
+			background: transparent;
+			border: 3px solid #ccc;
+			padding: .5em 2em;
+			display: block;
+			font-size: 1.2em;
+			text-decoration: none;
+			color: #ccc;
+			font-weight: bold;
+			width: 100%;
+			border-radius: .5em;
+		}
+
+		.button:hover {
+			color: green;
+			border: 3px solid green;
+		}
+
+		.cancel:hover {
+			color: red;
+			border: 3px solid red;
+		}
 	}
 }
 
@@ -19,13 +70,20 @@
 
 	.button {
 		background: transparent;
-		border: 3px solid #000;
+		border: 3px solid #ccc;
 		padding: .5em 2em;
-		display: inline-block;
+		display: block;
 		text-decoration: none;
-		color: #000;
+		color: #ccc;
 		font-weight: bold;
+		width: 100%;
+		font-size: 1.2em;
+		border-radius: .5em;
+	}
 
+	.button:hover {
+		color: #333;
+		border: 3px solid #333;
 	}
 }
 
