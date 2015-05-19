@@ -1,28 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Fabriq app is a shared ownership social network for beaming and accepting reputation tokens, or reps. The more you beam, the more reps that you can earn. Beam your favorite DJs, art installations, stages, and find others like you. Create tribes with your group of friends and beam other tribes.
 
-Things you may want to cover:
+== How does it work?
 
-* Ruby version
+Reps are issued and maintained on a secure peer-2-peer network called Ethereum. It is likened to a global computer that no one owns and everyone can access. Future versions of Fabriq will allow any group to issue their own tokens, create voting rights, and define procedures for how to change those rules.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Groups can earn badges they create, interact across communities, and issue bounties for role fulfillment in exchange for tokens. These groups could be a tribe of friends at a music festival, a start-up company with governance and equity privileges, or members of an urban residential building.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Fabriq is a an open source project funded with a grant from the MIT-Stanford Blockchain hackathon. Read the original white paper here.

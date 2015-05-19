@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'newsletters/index'
-
-  get 'newsletters/edit'
-
   get 'main/index'
   get 'main/about'
   get 'main/explore'
   get 'main/invite'
   get 'main/home'
-
+  get 'mysteryland/index'
 
   resources :users do
     member do
@@ -34,6 +30,7 @@ Rails.application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/signup', to: 'users#new', via: 'get'
+  match '/mysteryland-2015', to: 'mysteryland#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -362,16 +362,16 @@
 	}
 
 	#what {
-		padding: 10em 0;
+		padding: 6em 0;
 		border-bottom: 5px solid #eee;
 
 		h1 {
-			text-align: left;
+			text-align: center;
 			font-weight: 600;
 		}
 
 		p {
-			text-align: left;
+			text-align: center;
 			font-size: 1.75em;
 			line-height: 1.75em;
 			margin-bottom: 2em;
@@ -383,13 +383,41 @@
 
 		.image { 
 			text-align: center;
-			padding-top: 4em;
+			margin-bottom: 4em;
 
 			img {
 				width: 270px;
 				display: inline-block;
 				margin: auto;
 			}
+		}
+
+		.sponsor-row {
+			text-align: center;
+		}
+
+		.sponsor {
+			display: inline-block;
+			height: 5em;
+			margin: 0 1em;
+			opacity: .5;
+			-webkit-filter: grayscale(100%);
+			filter: grayscale(100%);
+			transition: all .2s;
+			-moz-transition: all .2s;
+			-webkit-transition: all .2s;
+			-ms-transition: all .2s;
+
+			img {
+				display: block;
+				height: 100%;
+			}
+		}
+
+		.sponsor:hover {
+			opacity: 1;
+			-webkit-filter: grayscale(0%);
+			filter: grayscale(0%);
 		}
 	}
 

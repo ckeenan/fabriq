@@ -37,12 +37,13 @@ html, html body {
 		display: block;
 		float: left;
 		height: 100%;
+		text-decoration: none;
 
 		img {
 			display: inline-block;
-			height: 3.75em;
+			height: 4em;
 			vertical-align: top;
-			padding-top: .625em;
+			margin-top: .5em;
 			transition: all .1s;
 			-moz-transition: all .1s;
 			-ms-transition: all .1s;
@@ -56,7 +57,9 @@ html, html body {
 			margin: 0 0 0 .25em;
 			font-size: 2.5em;
 			display: inline-block;
-			line-height: 2em;
+			line-height: 2.2em;
+			color: #555;
+			text-decoration: none;
 		}	
 	}
 
@@ -72,10 +75,19 @@ html, html body {
 		a {
 			display: inline-block;
 			text-decoration: none;
-			color: #000;
-			margin: 1em;
-			line-height: 3em;
+			color: #888;
+			font-size: 1em;
+			margin: 0 1em;
+			line-height: 5em;
+			height: 5em;
 			padding: 0 1em;
+			text-transform: uppercase;
+			font-family: 'Kabel';
+			font-weight: 600;
+		}
+
+		a:hover {
+			color: #000;
 		}
 	}
 }
