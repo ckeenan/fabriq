@@ -1,0 +1,17 @@
+<div id="artists">
+	<div class="container">
+		<div class="top-reps row">
+			<% @artists.each do |dj| %>
+				<a href="/users/<%= dj.id %>" class="item">
+					<img src="<%= dj.avatar.to_s %>" />
+					<div class="info">
+						<div class="inner">
+							<h4><%= dj.name %></h4>
+							<p><i class="fa fa-star-o"></i><%= dj.reputation.round %></p>
+						</div>
+					</div>
+				</a>
+			<% end %>
+		</div>
+	</div>
+</div>

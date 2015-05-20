@@ -1,0 +1,17 @@
+<div id="stages">
+	<div class="container">
+		<div class="top-reps row">
+			<% @stages.each do |stage| %>
+				<a href="/users/<%= stage.id %>" class="item">
+					<img src="<%= stage.avatar.to_s %>" />
+					<div class="info">
+						<div class="inner">
+							<h4><%= stage.name %></h4>
+							<p><i class="fa fa-star-o"></i><%= stage.reputation.round %></p>
+						</div>
+					</div>
+				</a>
+			<% end %>
+		</div>
+	</div>
+</div>

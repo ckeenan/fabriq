@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150509163443) do
     t.string   "name"
     t.string   "email"
     t.string   "avatar"
+    t.string   "usertype"
     t.float    "reputation"
     t.integer  "tribe_id"
     t.datetime "created_at",      null: false

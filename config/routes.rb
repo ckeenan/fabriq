@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'main/explore'
   get 'main/invite'
   get 'main/home'
+  get 'main/artists'
+  get 'main/stages'
+  get 'main/map'
   get 'mysteryland/index'
 
   resources :users do
