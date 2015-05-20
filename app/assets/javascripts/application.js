@@ -15,8 +15,8 @@
 //= require_tree .
 
 
-
-var api = 'http://localhost:8000';
+//var api = 'http://localhost:8000';
+var api = 'http://52.11.176.202:8000';
 var fw = new FabriqWallet(api);
 $(document).ready(function() {
 
@@ -67,8 +67,7 @@ $(document).ready(function() {
 
 	var txHash = localStorage.getItem('registering');
 	if (txHash && txHash.length) {
-		$('#signup').prop('disabled', true);
-		checkRegId = setInterval(checkRegistration, checkRegInterval);
+		disableSignup();
 	}
 
 	$('#register').click(function() {
@@ -76,53 +75,28 @@ $(document).ready(function() {
 		var pw2 = $('#password2').val();
 		var username = $('#name').val();
 		var email = $('#email').val();
-		if (pw1 !== pw2) $('#result').html("Passwords do not match");
+		if (pw1 !== pw2) $('.result').html("Passwords do not match");
 		else {
-			$('#result').html("");
+			$('.result').html("");
 			fw.create(username, pw1, email, function(err, data) {
-				if (err || !data || !data.txhash) $("#result").html(err);
+				if (err || !data || !data.txhash) $(".result").html(err);
 				else {
 					disableSignup();
 					localStorage.setItem('registering', data.txhash);
 					// Reload pending list
 					loadPending();
-					checkRegId = setInterval(checkRegistration, checkRegInterval);
 				}
 			});
 		}
 	});
 
-	function checkRegistration() {
-		txHash = localStorage.getItem('registering');
-		if (!txHash || !txHash.length) clearInterval(checkRegId);
-		else
-			fw.validate(function(err, id) {
-				// Throw err after X attempts
-				if (err) {
-					enableSignup();
-					// TODO Redirect users to sign in form here (just in case)
-					$('.result').html("Registration timed out");
-					localStorage.setItem('registering', '');
-				}
-				else if (id) {
-					$.post('/sessions', {id: id}, function() {
-						clearInterval(checkRegId);
-						localStorage.setItem('registering', '');
-						window.location.href = '/main/index';
-					});
-				}
-			});
-	}
-
 	function disableSignup() {
-		$('.result').html("Registering username");
 		$('div.signup').css("pointer-events", 'none');
 		$('.signup input').css('opacity', 0.5);
 		$('.signup a').css('opacity', 0.5);
 	}
 
 	function enableSignup() {
-		$('.result').html("");
 		$('div.signup').css("pointer-events", 'auto');
 		$('.signup input').css('opacity', 1);
 		$('.signup a').css('opacity', 1);
@@ -184,20 +158,57 @@ function loadPending() {
 var pendingIntervalId;
 var pendingInterval = 5000;
 
+function enableSignup() {
+	$('div.signup').css("pointer-events", 'auto');
+	$('.signup input').css('opacity', 1);
+	$('.signup a').css('opacity', 1);
+}
 
 function checkPendingTransactions() {
+	var regTxHash = localStorage.getItem('registering');
+	function clearRegister(el) {
+		if (el.id == regTxHash) {
+			localStorage.setItem('registering', '');
+			//enableSignup();
+			console.log("Attempting to validate");
+
+			// TODO remove validation attempts. Wait for the txhash logs, then see if it has an ID or not...
+
+			fw.validate(function(err, id) {
+				// Throw err after X attempts
+				console.log("validate", err, id);
+				if (err) {
+					enableSignup();
+					// TODO Redirect users to sign in form here (just in case)
+					$('.result').html("Registration timed out");
+				}
+				else if (id) {
+					$.post('/sessions', {id: id}, function() {
+						window.location.href = '/main/index';
+					});
+				}
+			});
+		}
+	}
+
 	fw.txstore.checkAll(function(err, results) {
 		results.forEach(function(el) {
+			clearRegister(el);
 			var txEl = $('#' + el.id);
 			txEl.find('span.three-quarters-loader').css('display', 'none');
 			if (el.result == 'success')
 				txEl.find('span.glyphicon-ok').css('display', 'inline');
 			else if (el.result == 'fail')
 				txEl.find('span.glyphicon-remove').css('display', 'inline');
-			txEl.find('.pending-msg').text(txEl.msg);
+			else if (el.result == 'timeout')
+				txEl.find('span.glyphicon-time').css('display', 'inline');
+			txEl.find('.pending-msg').text(el.msg);
 		});
 		var txList = fw.txstore.txList;
-		if (!txList || !txList.length) clearInterval(pendingIntervalId);
+		if (!txList || !txList.length) {
+			clearInterval(pendingIntervalId);
+			pendingIntervalId = null;
+		}
 	});
 }
 
@@ -209,8 +220,10 @@ function beam(user, amount) {
 
 function link(user) {
 	console.log("LINK", user);
+	/*
 	fw.link(user, function(data) {
 		console.log("Link", user, data);
 	});
+	*/
 }
 

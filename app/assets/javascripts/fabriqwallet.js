@@ -29,7 +29,7 @@ var db = {
 
 var FabriqWallet = module.exports = function(apiUrl) {
     this.api = apiUrl;
-    this.maxRetries = 10;
+    this.maxRetries = 40;
 
     this.loadUser = function() {
         this.currentUser = {};
@@ -233,9 +233,6 @@ FabriqWallet.prototype.create = function(name, pw, email, next) {
                 generatePublicKey,
                 saveUser
                 ], function(err) {
-                    console.log("PK", pkHex);
-                    console.log("ADDR", addr);
-                    console.log("genAddr", self.genAddr(pk));
                     self.loadUser();
                     self.registerUser(addr, name, epk, email, next);
             });
@@ -260,13 +257,11 @@ FabriqWallet.prototype.beam = function(name, amount, next) {
         gasLimit: 342000,
         to: Rep.addr
     });
-    console.log('sending to ', Rep.addr);
 
     var txdata = '0730f78c';
     var hexAmount = utils.pad(decimalToHexString(amount), 64);
 
     this.getNonce(function(err, nonce) {
-        console.log("nonce", nonce);
         if (err) return next(err);
         if (nonce == 0) nonce = '';
         tx.nonce = nonce;
@@ -309,7 +304,6 @@ FabriqWallet.prototype.link = function(username, next) {
     this.addrByName(username, function(err, addr) {
         if (err) return next(err);
         self.getNonce(function(err, nonce) {
-            console.log("Nonce", err, nonce);
             if (nonce == 0) tx.nonce = '';
             else tx.nonce = nonce;
             next();
@@ -335,8 +329,8 @@ module.exports = FabriqWallet;
 }).call(this,require("buffer").Buffer)
 },{"../contracts":2,"../node_modules/ethereumjs-lib/lib/transaction.js":7,"./txstore":3,"./utils":4,"async":5,"buffer":132,"crypto":138}],2:[function(require,module,exports){
 
-var NameReg = {"name":"NameReg","binary":"0x600080547fffffffffffffffffffffffff00000000000000000000000000000000000000001633178155610bd590819061003990396000f3007c0100000000000000000000000000000000000000000000000000000000600035046306b43c358114610086578063568054a914610104578063600ec35d1461011d57806367d42a8b1461019e57806379ce9fac146102e55780637a1a2bca146104f65780638a75ebb71461058a5780638da5cb5b146105c4578063966a9613146105e457005b602435600081815260036020908152604082205461061393600435939092608492604435929183028401916064359186907f72656769737465722e6e616d65556e617661696c61626c6500000000000000009073ffffffffffffffffffffffffffffffffffffffff168084141561068557600034116106d857610708565b6002602052600435600090815260409020546106199081565b73ffffffffffffffffffffffffffffffffffffffff32166000908152600160209081526040808320600435808552908352908320805460243580835582865293909420610623949293604493909291908101908390858515610ba9579160200282015b82811115610ba8578235826000505591602001919060010190610180565b6004356000818152600360205260408120549054610629929182917f72656c656173652e6e6f744f776e6572000000000000000000000000000000009173ffffffffffffffffffffffffffffffffffffffff9081169132821691161415801561023357503273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614155b6109705773ffffffffffffffffffffffffffffffffffffffff3216600081815260026020908152604080832083905587835260039091529081902080547fffffffffffffffffffffffff00000000000000000000000000000000000000001690557f72656c6561736500000000000000000000000000000000000000000000000000815260016060527f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26109b7565b600435600081815260036020526040812054905461062f92916024359183917f7472616e736665722e6e6f744f776e65720000000000000000000000000000009173ffffffffffffffffffffffffffffffffffffffff9182169132811691161415801561037e57503273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614155b6109bd5773ffffffffffffffffffffffffffffffffffffffff841660009081526002602052604081205485917f7472616e736665722e61646472556e617661696c61626c6500000000000000009190811415610a0b5773ffffffffffffffffffffffffffffffffffffffff3281166000818152600260209081526040808320839055938b1682528382208c90558b82526003905282902080547fffffffffffffffffffffffff0000000000000000000000000000000000000000168a1790557f7472616e7366657200000000000000000000000000000000000000000000000082526001606052907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a27f7472616e736665720000000000000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8816907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a2610a52565b73ffffffffffffffffffffffffffffffffffffffff328116600090815260016020818152604080842060043580865290835281852060243596871686529383528185208186528352908420835481548183558287529390952061063596929592949193810192918215610aed5760005260206000209182015b82811115610aec57825482559160010191906001019061056f565b61063b60043560243560443560016000506020528260005260406000206000506020528160005260406000206000508181548110610bc157005b6000546106459073ffffffffffffffffffffffffffffffffffffffff1681565b6003602052600435600090815260409020546106659073ffffffffffffffffffffffffffffffffffffffff1681565b60006000f35b8060005260206000f35b60006000f35b60006000f35b60006000f35b60006000f35b8060005260206000f35b8073ffffffffffffffffffffffffffffffffffffffff1660005260206000f35b8073ffffffffffffffffffffffffffffffffffffffff1660005260206000f35b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b50505050505050505050565b8973ffffffffffffffffffffffffffffffffffffffff166000346000600060006000848787f161070457005b5050505b73ffffffffffffffffffffffffffffffffffffffff8a16600090815260026020526040812054945084141561073c57610771565b600084815260036020526040902080547fffffffffffffffffffffffff00000000000000000000000000000000000000001690555b73ffffffffffffffffffffffffffffffffffffffff8a1660008181526002602090815260408083208d90558c83526003825280832080547fffffffffffffffffffffffff0000000000000000000000000000000000000000168f179055928252600181528282207f65706b00000000000000000000000000000000000000000000000000000000008352815291812080548a825581835292909120909181019089908b8b15610840579160200282015b8281111561083f578235826000505591602001919060010190610821565b5b5090505b808211156108585760008155600101610844565b50505073ffffffffffffffffffffffffffffffffffffffff8a1660009081526001602090815260408083207f656d61696c0000000000000000000000000000000000000000000000000000008452825282208054888255818452919092209081019087908989156108e9579160200282015b828111156108e85782358260005055916020019190600101906108ca565b5b5090505b8082111561090157600081556001016108ed565b50507f72656769737465720000000000000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8c1691507f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26106cc565b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b50505050565b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b5050505050565b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b505050610a04565b50506040828152600160605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26040828152600160605273ffffffffffffffffffffffffffffffffffffffff8216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050565b5b5090505b80821115610b055760008155600101610af1565b50505073ffffffffffffffffffffffffffffffffffffffff321660009081526001602090815260408083208584528252822080548382559083529120908101905b80821115610a5a5760008155600101610b46565b5050506040838152600160605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a2505050565b5b5090505b80821115610b5a5760008155600101610bad565b60009182526020909120015492508391505056","abi":[{"constant":false,"inputs":[{"name":"newRegisterAddr","type":"address"},{"name":"name","type":"bytes32"},{"name":"epk","type":"bytes32[]"},{"name":"email","type":"bytes32[]"}],"name":"register","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"nameByAddr","outputs":[{"name":"","type":"bytes32"}],"type":"function"},{"constant":false,"inputs":[{"name":"f","type":"bytes32"},{"name":"input","type":"bytes32[]"}],"name":"editField","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"}],"name":"release","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"newOwner","type":"address"}],"name":"transfer","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"field","type":"bytes32"},{"name":"newOwner","type":"address"}],"name":"transferDataField","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"bytes32"},{"name":"","type":"uint256"}],"name":"userData","outputs":[{"name":"","type":"bytes32"}],"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"addrByName","outputs":[{"name":"","type":"address"}],"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":false,"name":"message","type":"bytes32"},{"indexed":false,"name":"success","type":"bool"}],"name":"registerEvent","type":"event"}],"addr":"0xa340a6df711b6dc974eea2043ccd6876911f59a8"};
-var Rep_Trimmed = {"name":"Rep_Trimmed","binary":"0x600380547fffffffffffffffffffffffff000000000000000000000000000000000000000016331790556107f9806100386000396000f3007c010000000000000000000000000000000000000000000000000000000060003504630730f78c811461008657806329fd45131461009c578063324854bf1461013f578063343e5f2614610173578063938d967a146101a75780639cf5c613146101bf578063a673630c146101f3578063a87430ba1461021b578063f851a4401461023e57005b61025e60043560243560008111610491576105b7565b6102646024600435337f7375626d69742e56657269666965644c696e6b0000000000000000000000000060018484600160005060003373ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600050600201600050919082805482825590600052602060002090810192821561030f579160200282015b8281111561030e578235826000505591602001919060010190610121565b60035461026a9060043590602435903373ffffffffffffffffffffffffffffffffffffffff90811691161461047757610489565b6003546102709060043590602435903373ffffffffffffffffffffffffffffffffffffffff9081169116146103da576103d6565b60006020819052600435815260409020546102769081565b6003546102809060043590602435903373ffffffffffffffffffffffffffffffffffffffff908116911614610327576103d1565b6002602090815260043560009081526040808220909252602435815220546102869060ff1681565b600160208190526004356000908152604090208054910154610290919060ff1682565b60035461029e9073ffffffffffffffffffffffffffffffffffffffff1681565b60006000f35b60006000f35b60006000f35b60006000f35b8060005260206000f35b60006000f35b8060005260206000f35b816000528060205260406000f35b8073ffffffffffffffffffffffffffffffffffffffff1660005260206000f35b5050506040828152606082905273ffffffffffffffffffffffffffffffffffffffff8416907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050505050565b5b5090505b808211156102be5760008155600101610313565b73ffffffffffffffffffffffffffffffffffffffff82166000818152600160208190526040918290200180547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016841790557f6368616e676564566572696669656400000000000000000000000000000000008082526060849052849290918491907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050505b5050565b5b5050565b6000818152602081905260409020546103d59083905b73ffffffffffffffffffffffffffffffffffffffff82166000818152600160208190526040918290208054850190557f7265702e637265617465640000000000000000000000000000000000000000008083526060829052859390927f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050505050565b60008281526020819052604090208190555b5050565b5050565b73ffffffffffffffffffffffffffffffffffffffff3316600090815260016020526040902054819010156104c4576105b6565b73ffffffffffffffffffffffffffffffffffffffff3381166000818152600160208190526040808320805487900390559386168252908390208054850190557f6265616d2e73656e7400000000000000000000000000000000000000000000008352606052907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a27f6265616d2e7265636569766564000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8316907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b5b3373ffffffffffffffffffffffffffffffffffffffff8116600090815260016020819052604090912081015461048d9291859160ff16148015610625575073ffffffffffffffffffffffffffffffffffffffff8116600090815260016020819052604090912081015460ff16145b61063457610630565b5b5b5050565b73ffffffffffffffffffffffffffffffffffffffff808316600090815260026020908152604080832093851683529290529081205460ff161480156106ae575073ffffffffffffffffffffffffffffffffffffffff808216600090815260026020908152604080832093861683529290529081205460ff16145b6106b75761062f565b73ffffffffffffffffffffffffffffffffffffffff82811660008181526002602081815260408084209587168452948152848320805460017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff009182168117909255928252858420858552909152918490208054909116821790557f6c696e6b2e66726f6d00000000000000000000000000000000000000000000008352606052907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a27f6c696e6b2e746f000000000000000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26107ee8260016103f0565b61062e8160016103f056","abi":[{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"beam","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_link","type":"bytes32[]"}],"name":"submitVerifiedLink","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_action","type":"bytes32"},{"name":"_amount","type":"uint256"}],"name":"setReward","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_for","type":"address"},{"name":"_reward","type":"bytes32"}],"name":"unlockRep","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"rewards","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"_for","type":"address"},{"name":"_status","type":"bool"}],"name":"setVerified","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"links","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"users","outputs":[{"name":"balance","type":"uint256"},{"name":"verified","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"admin","outputs":[{"name":"","type":"address"}],"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"user","type":"address"},{"indexed":false,"name":"message","type":"bytes32"},{"indexed":false,"name":"result","type":"bool"}],"name":"registerEvent","type":"event"}],"addr":"0xe53ba81c6cb76a59ba6c5be266a956e9b2d28f3e"};if (typeof module !== "undefined") module.exports= {
+var NameReg = {"name":"NameReg","binary":"0x600080547fffffffffffffffffffffffff00000000000000000000000000000000000000001633178155610bd590819061003990396000f3007c0100000000000000000000000000000000000000000000000000000000600035046306b43c358114610086578063568054a914610104578063600ec35d1461011d57806367d42a8b1461019e57806379ce9fac146102e55780637a1a2bca146104f65780638a75ebb71461058a5780638da5cb5b146105c4578063966a9613146105e457005b602435600081815260036020908152604082205461061393600435939092608492604435929183028401916064359186907f72656769737465722e6e616d65556e617661696c61626c6500000000000000009073ffffffffffffffffffffffffffffffffffffffff168084141561068557600034116106d857610708565b6002602052600435600090815260409020546106199081565b73ffffffffffffffffffffffffffffffffffffffff32166000908152600160209081526040808320600435808552908352908320805460243580835582865293909420610623949293604493909291908101908390858515610ba9579160200282015b82811115610ba8578235826000505591602001919060010190610180565b6004356000818152600360205260408120549054610629929182917f72656c656173652e6e6f744f776e6572000000000000000000000000000000009173ffffffffffffffffffffffffffffffffffffffff9081169132821691161415801561023357503273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614155b6109705773ffffffffffffffffffffffffffffffffffffffff3216600081815260026020908152604080832083905587835260039091529081902080547fffffffffffffffffffffffff00000000000000000000000000000000000000001690557f72656c6561736500000000000000000000000000000000000000000000000000815260016060527f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26109b7565b600435600081815260036020526040812054905461062f92916024359183917f7472616e736665722e6e6f744f776e65720000000000000000000000000000009173ffffffffffffffffffffffffffffffffffffffff9182169132811691161415801561037e57503273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614155b6109bd5773ffffffffffffffffffffffffffffffffffffffff841660009081526002602052604081205485917f7472616e736665722e61646472556e617661696c61626c6500000000000000009190811415610a0b5773ffffffffffffffffffffffffffffffffffffffff3281166000818152600260209081526040808320839055938b1682528382208c90558b82526003905282902080547fffffffffffffffffffffffff0000000000000000000000000000000000000000168a1790557f7472616e7366657200000000000000000000000000000000000000000000000082526001606052907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a27f7472616e736665720000000000000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8816907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a2610a52565b73ffffffffffffffffffffffffffffffffffffffff328116600090815260016020818152604080842060043580865290835281852060243596871686529383528185208186528352908420835481548183558287529390952061063596929592949193810192918215610aed5760005260206000209182015b82811115610aec57825482559160010191906001019061056f565b61063b60043560243560443560016000506020528260005260406000206000506020528160005260406000206000508181548110610bc157005b6000546106459073ffffffffffffffffffffffffffffffffffffffff1681565b6003602052600435600090815260409020546106659073ffffffffffffffffffffffffffffffffffffffff1681565b60006000f35b8060005260206000f35b60006000f35b60006000f35b60006000f35b60006000f35b8060005260206000f35b8073ffffffffffffffffffffffffffffffffffffffff1660005260206000f35b8073ffffffffffffffffffffffffffffffffffffffff1660005260206000f35b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b50505050505050505050565b8973ffffffffffffffffffffffffffffffffffffffff166000346000600060006000848787f161070457005b5050505b73ffffffffffffffffffffffffffffffffffffffff8a16600090815260026020526040812054945084141561073c57610771565b600084815260036020526040902080547fffffffffffffffffffffffff00000000000000000000000000000000000000001690555b73ffffffffffffffffffffffffffffffffffffffff8a1660008181526002602090815260408083208d90558c83526003825280832080547fffffffffffffffffffffffff0000000000000000000000000000000000000000168f179055928252600181528282207f65706b00000000000000000000000000000000000000000000000000000000008352815291812080548a825581835292909120909181019089908b8b15610840579160200282015b8281111561083f578235826000505591602001919060010190610821565b5b5090505b808211156108585760008155600101610844565b50505073ffffffffffffffffffffffffffffffffffffffff8a1660009081526001602090815260408083207f656d61696c0000000000000000000000000000000000000000000000000000008452825282208054888255818452919092209081019087908989156108e9579160200282015b828111156108e85782358260005055916020019190600101906108ca565b5b5090505b8082111561090157600081556001016108ed565b50507f72656769737465720000000000000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8c1691507f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26106cc565b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b50505050565b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b5050505050565b6040828152600060605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b505050610a04565b50506040828152600160605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26040828152600160605273ffffffffffffffffffffffffffffffffffffffff8216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050565b5b5090505b80821115610b055760008155600101610af1565b50505073ffffffffffffffffffffffffffffffffffffffff321660009081526001602090815260408083208584528252822080548382559083529120908101905b80821115610a5a5760008155600101610b46565b5050506040838152600160605273ffffffffffffffffffffffffffffffffffffffff3216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a2505050565b5b5090505b80821115610b5a5760008155600101610bad565b60009182526020909120015492508391505056","abi":[{"constant":false,"inputs":[{"name":"newRegisterAddr","type":"address"},{"name":"name","type":"bytes32"},{"name":"epk","type":"bytes32[]"},{"name":"email","type":"bytes32[]"}],"name":"register","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"nameByAddr","outputs":[{"name":"","type":"bytes32"}],"type":"function"},{"constant":false,"inputs":[{"name":"f","type":"bytes32"},{"name":"input","type":"bytes32[]"}],"name":"editField","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"}],"name":"release","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"newOwner","type":"address"}],"name":"transfer","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"field","type":"bytes32"},{"name":"newOwner","type":"address"}],"name":"transferDataField","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"bytes32"},{"name":"","type":"uint256"}],"name":"userData","outputs":[{"name":"","type":"bytes32"}],"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"addrByName","outputs":[{"name":"","type":"address"}],"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":false,"name":"message","type":"bytes32"},{"indexed":false,"name":"success","type":"bool"}],"name":"registerEvent","type":"event"}],"addr":"0x91d11499b1ae3e6c7a2edb04e3388ae0755d86f7"};
+var Rep_Trimmed = {"name":"Rep_Trimmed","binary":"0x600380547fffffffffffffffffffffffff000000000000000000000000000000000000000016331790556107f9806100386000396000f3007c010000000000000000000000000000000000000000000000000000000060003504630730f78c811461008657806329fd45131461009c578063324854bf1461013f578063343e5f2614610173578063938d967a146101a75780639cf5c613146101bf578063a673630c146101f3578063a87430ba1461021b578063f851a4401461023e57005b61025e60043560243560008111610491576105b7565b6102646024600435337f7375626d69742e56657269666965644c696e6b0000000000000000000000000060018484600160005060003373ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600050600201600050919082805482825590600052602060002090810192821561030f579160200282015b8281111561030e578235826000505591602001919060010190610121565b60035461026a9060043590602435903373ffffffffffffffffffffffffffffffffffffffff90811691161461047757610489565b6003546102709060043590602435903373ffffffffffffffffffffffffffffffffffffffff9081169116146103da576103d6565b60006020819052600435815260409020546102769081565b6003546102809060043590602435903373ffffffffffffffffffffffffffffffffffffffff908116911614610327576103d1565b6002602090815260043560009081526040808220909252602435815220546102869060ff1681565b600160208190526004356000908152604090208054910154610290919060ff1682565b60035461029e9073ffffffffffffffffffffffffffffffffffffffff1681565b60006000f35b60006000f35b60006000f35b60006000f35b8060005260206000f35b60006000f35b8060005260206000f35b816000528060205260406000f35b8073ffffffffffffffffffffffffffffffffffffffff1660005260206000f35b5050506040828152606082905273ffffffffffffffffffffffffffffffffffffffff8416907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050505050565b5b5090505b808211156102be5760008155600101610313565b73ffffffffffffffffffffffffffffffffffffffff82166000818152600160208190526040918290200180547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016841790557f6368616e676564566572696669656400000000000000000000000000000000008082526060849052849290918491907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050505b5050565b5b5050565b6000818152602081905260409020546103d59083905b73ffffffffffffffffffffffffffffffffffffffff82166000818152600160208190526040918290208054850190557f7265702e637265617465640000000000000000000000000000000000000000008083526060829052859390927f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25050505050565b60008281526020819052604090208190555b5050565b5050565b73ffffffffffffffffffffffffffffffffffffffff3316600090815260016020526040902054819010156104c4576105b6565b73ffffffffffffffffffffffffffffffffffffffff3381166000818152600160208190526040808320805487900390559386168252908390208054850190557f6265616d2e73656e7400000000000000000000000000000000000000000000008352606052907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a27f6265616d2e7265636569766564000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8316907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a25b5b3373ffffffffffffffffffffffffffffffffffffffff8116600090815260016020819052604090912081015461048d9291859160ff16148015610625575073ffffffffffffffffffffffffffffffffffffffff8116600090815260016020819052604090912081015460ff16145b61063457610630565b5b5b5050565b73ffffffffffffffffffffffffffffffffffffffff808316600090815260026020908152604080832093851683529290529081205460ff161480156106ae575073ffffffffffffffffffffffffffffffffffffffff808216600090815260026020908152604080832093861683529290529081205460ff16145b6106b75761062f565b73ffffffffffffffffffffffffffffffffffffffff82811660008181526002602081815260408084209587168452948152848320805460017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff009182168117909255928252858420858552909152918490208054909116821790557f6c696e6b2e66726f6d00000000000000000000000000000000000000000000008352606052907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a27f6c696e6b2e746f000000000000000000000000000000000000000000000000006040908152600160605273ffffffffffffffffffffffffffffffffffffffff8216907f743b10ceb5cf5c0bb49ac640d6861dedbec55c80db2891a7e2ae8fabb26e20a79080a26107ee8260016103f0565b61062e8160016103f056","abi":[{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"beam","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_link","type":"bytes32[]"}],"name":"submitVerifiedLink","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_action","type":"bytes32"},{"name":"_amount","type":"uint256"}],"name":"setReward","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_for","type":"address"},{"name":"_reward","type":"bytes32"}],"name":"unlockRep","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"rewards","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"_for","type":"address"},{"name":"_status","type":"bool"}],"name":"setVerified","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"links","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"users","outputs":[{"name":"balance","type":"uint256"},{"name":"verified","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"admin","outputs":[{"name":"","type":"address"}],"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"user","type":"address"},{"indexed":false,"name":"message","type":"bytes32"},{"indexed":false,"name":"result","type":"bool"}],"name":"registerEvent","type":"event"}],"addr":"0xd9ef529f02992471513baed61bae5fe3fbfa6878"};if (typeof module !== "undefined") module.exports= {
 	NameReg: NameReg,
 	Rep_Trimmed: Rep_Trimmed,
 };
@@ -352,6 +346,10 @@ var txtypes = {
             "",
             " registered"
             ],
+        timeout: [
+            "Could not verify registration of ",
+            ": connection timed out"
+            ],
         fail: [
             "Could not register ",
             ""
@@ -366,6 +364,11 @@ var txtypes = {
             "Sent ",
             " tokens to "
             ],
+        timeout: [
+            "Could not verify beam of ",
+            " tokens to ",
+            ": connection timed out"
+            ],
         fail: [
             "Could not send ",
             " tokens to "
@@ -377,6 +380,10 @@ var txtypes = {
             ],
         success: [
             "Linked with ",
+            ],
+        timeout: [
+            "Could not verify link with ",
+            ": connection timed out"
             ],
         fail: [
             "Could not link with ",
@@ -412,7 +419,7 @@ var txtypes = {
     }
 };
 
-var defaultWaitTime = 20000;
+var defaultWaitTime = 120000;
 
 function currentUser() {
     return localStorage.getItem('addr') || "";
@@ -539,10 +546,9 @@ var Transaction = function(type, params, id) {
 
     // states: succeed, fail, null, other
     this.success = function(payload) {
-        console.log("TXSTORE payload", payload);
         var curTime = +new Date();
-        if (!payload & curTime - this.timestamp > defaultWaitTime)
-            return "Unable to verify transaction; connection timeout";
+        if (!payload || curTime - this.timestamp > defaultWaitTime)
+            return "timeout";
         if (typeof payload.data === 'string') payload.data = JSON.parse(payload.data);
         if (payload.data && payload.data.success) return "success";
         if (payload.data && payload.data.result) return "success";
@@ -639,9 +645,6 @@ exports.ethrpc = function(ethRpcUrl, method, params, next) {
     };
 
     var _each = function (arr, iterator) {
-        if (arr.forEach) {
-            return arr.forEach(iterator);
-        }
         for (var i = 0; i < arr.length; i += 1) {
             iterator(arr[i], i, arr);
         }
@@ -1418,23 +1421,26 @@ exports.ethrpc = function(ethRpcUrl, method, params, next) {
             pause: function () {
                 if (q.paused === true) { return; }
                 q.paused = true;
-                q.process();
             },
             resume: function () {
                 if (q.paused === false) { return; }
                 q.paused = false;
-                q.process();
+                // Need to call q.process once per concurrent
+                // worker to preserve full concurrency after pause
+                for (var w = 1; w <= q.concurrency; w++) {
+                    async.setImmediate(q.process);
+                }
             }
         };
         return q;
     };
-    
+
     async.priorityQueue = function (worker, concurrency) {
-        
+
         function _compareTasks(a, b){
           return a.priority - b.priority;
         };
-        
+
         function _binarySearch(sequence, item, compare) {
           var beg = -1,
               end = sequence.length - 1;
@@ -1448,7 +1454,7 @@ exports.ethrpc = function(ethRpcUrl, method, params, next) {
           }
           return beg;
         }
-        
+
         function _insert(q, data, priority, callback) {
           if (!q.started){
             q.started = true;
@@ -1470,7 +1476,7 @@ exports.ethrpc = function(ethRpcUrl, method, params, next) {
                   priority: priority,
                   callback: typeof callback === 'function' ? callback : null
               };
-              
+
               q.tasks.splice(_binarySearch(q.tasks, item, _compareTasks) + 1, 0, item);
 
               if (q.saturated && q.tasks.length === q.concurrency) {
@@ -1479,15 +1485,15 @@ exports.ethrpc = function(ethRpcUrl, method, params, next) {
               async.setImmediate(q.process);
           });
         }
-        
+
         // Start with a normal queue
         var q = async.queue(worker, concurrency);
-        
+
         // Override push to accept second parameter representing priority
         q.push = function (data, priority, callback) {
           _insert(q, data, priority, callback);
         };
-        
+
         // Remove unshift function
         delete q.unshift;
 
@@ -13509,7 +13515,24 @@ var get = function(obj, additionalSchemas, ptr) {
   try {
     return jsonpointer.get(obj, decodeURI(ptr))
   } catch (err) {
-    var other = additionalSchemas[ptr] || additionalSchemas[ptr.replace(/^#/, '')]
+    var end = ptr.indexOf('#')
+    var other
+    // external reference
+    if (end !== 0) {
+      // fragment doesn't exist.
+      if (end === -1) {
+        other = additionalSchemas[ptr]
+      } else {
+        var ext = ptr.slice(0, end)
+        other = additionalSchemas[ext]
+        var fragment = ptr.slice(end).replace(/^#/, '')
+        try {
+          return jsonpointer.get(other, fragment)
+        } catch (err) {}
+      }
+    } else {
+      other = additionalSchemas[ptr]
+    }
     return other || null
   }
 }
@@ -14107,7 +14130,12 @@ var gen = function(obj, prop) {
 }
 
 gen.valid = isProperty
+gen.property = function (prop) {
+ return isProperty(prop) ? prop : JSON.stringify(prop)
+}
+
 module.exports = gen
+
 },{"is-property":60}],60:[function(require,module,exports){
 "use strict"
 function isProperty(str) {
@@ -19982,45 +20010,33 @@ module.exports.isWritable = isWritable
 module.exports.isDuplex   = isDuplex
 
 },{"stream":300}],98:[function(require,module,exports){
-module.exports = stringify;
+exports = module.exports = stringify
+exports.getSerialize = serializer
 
-function getSerialize (fn, decycle) {
-  var seen = [], keys = [];
-  decycle = decycle || function(key, value) {
-    return '[Circular ' + getPath(value, seen, keys) + ']'
-  };
+function stringify(obj, replacer, spaces, cycleReplacer) {
+  return JSON.stringify(obj, serializer(replacer, cycleReplacer), spaces)
+}
+
+function serializer(replacer, cycleReplacer) {
+  var stack = [], keys = []
+
+  if (cycleReplacer == null) cycleReplacer = function(key, value) {
+    if (stack[0] === value) return "[Circular ~]"
+    return "[Circular ~." + keys.slice(0, stack.indexOf(value)).join(".") + "]"
+  }
+
   return function(key, value) {
-    var ret = value;
-    if (typeof value === 'object' && value) {
-      if (seen.indexOf(value) !== -1)
-        ret = decycle(key, value);
-      else {
-        seen.push(value);
-        keys.push(key);
-      }
+    if (stack.length > 0) {
+      var thisPos = stack.indexOf(this)
+      ~thisPos ? stack.splice(thisPos + 1) : stack.push(this)
+      ~thisPos ? keys.splice(thisPos, Infinity, key) : keys.push(key)
+      if (~stack.indexOf(value)) value = cycleReplacer.call(this, key, value)
     }
-    if (fn) ret = fn(key, ret);
-    return ret;
+    else stack.push(value)
+
+    return replacer == null ? value : replacer.call(this, key, value)
   }
 }
-
-function getPath (value, seen, keys) {
-  var index = seen.indexOf(value);
-  var path = [ keys[index] ];
-  for (index--; index >= 0; index--) {
-    if (seen[index][ path[0] ] === value) {
-      value = seen[index];
-      path.unshift(keys[index]);
-    }
-  }
-  return '~' + path.join('.');
-}
-
-function stringify(obj, fn, spaces, decycle) {
-  return JSON.stringify(obj, getSerialize(fn, decycle), spaces);
-}
-
-stringify.getSerialize = getSerialize;
 
 },{}],99:[function(require,module,exports){
 
@@ -21402,6 +21418,9 @@ module.exports={
   "application/vnd.balsamiq.bmml+xml": {
     "source": "iana"
   },
+  "application/vnd.balsamiq.bmpr": {
+    "source": "iana"
+  },
   "application/vnd.bekitzur-stech+json": {
     "source": "iana",
     "compressible": true
@@ -22480,6 +22499,9 @@ module.exports={
   "application/vnd.micrografx.igx": {
     "source": "iana",
     "extensions": ["igx"]
+  },
+  "application/vnd.microsoft.portable-executable": {
+    "source": "iana"
   },
   "application/vnd.miele+json": {
     "source": "iana",
@@ -24465,6 +24487,10 @@ module.exports={
     "source": "apache",
     "extensions": ["nc","cdf"]
   },
+  "application/x-ns-proxy-autoconfig": {
+    "compressible": true,
+    "extensions": ["pac"]
+  },
   "application/x-nzb": {
     "source": "apache",
     "extensions": ["nzb"]
@@ -24653,7 +24679,7 @@ module.exports={
     "extensions": ["xhtml","xht"]
   },
   "application/xhtml-voice+xml": {
-    "source": "iana"
+    "source": "apache"
   },
   "application/xml": {
     "source": "iana",
@@ -24954,7 +24980,7 @@ module.exports={
     "extensions": ["oga","ogg","spx"]
   },
   "audio/opus": {
-    "source": "apache"
+    "source": "iana"
   },
   "audio/parityfec": {
     "source": "iana"
