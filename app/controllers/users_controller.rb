@@ -16,6 +16,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @usertypes = ["creature", "dj", "stage"]
+    @placeholder = "I am a..."
   end
 
   # GET /users/1/edit
@@ -59,7 +61,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "It's a pleasure to meet you!"
-      redirect_to "/main/index"
+      redirect_to @user
     else
       render 'new'
     end

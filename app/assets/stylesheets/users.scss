@@ -32,6 +32,21 @@
 		font-family: 'Open Sans', sans-serif;
 	}
 
+	.select {
+		width: 100%;
+		font-size: 1.2em;
+		border-top: 0;
+		border-bottom: 2px solid #ccc;
+		border-left: 0;
+		border-right: 0;
+		border-radius: 0px;
+		background: transparent;
+		box-shadow: 0 0 0;
+		padding-left: 0;
+		margin-top: 1.5em;
+		-webkit-appearance: none;
+	}
+
 	.button-container {
 		padding-top: 2em;
 		padding-bottom: 2em;

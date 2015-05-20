@@ -5,5 +5,5 @@ ActionMailer::Base.smtp_settings = {
 	:user_name => "bryan.knouse@gmail.com",
 	:password  => "MNNU4faNRBCrCXgm3FIWlw", # SMTP password is any valid API key
 	:authentication => 'login', # Mandrill supports 'plain' or 'login'
-	:domain => 'fabriq.herokuapp.com', # your domain to identify your server when connecting
+	:domain => 'www.ourfabriq.com', # your domain to identify your server when connecting
 }

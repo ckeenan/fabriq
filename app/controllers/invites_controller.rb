@@ -18,9 +18,9 @@ class InvitesController < ApplicationController
 		if @invite.save
 			@invite.send_invite_email
 			flash[:success] = "Invite Sent!"
-			redirect_to '/main/index'
+			redirect_to '/main/home'
 		else
-			render '/main/index'
+			render '/main/home'
 		end
 	end
 
