@@ -1,1 +1,21 @@
-<%= render @users %>
+<div id="users">
+	<div class="container">
+		<div class="reps row">
+			<% @users.each do |user| %>
+				<a href="/users/<%= user.id %>" class="item">
+					<% if user.avatar.to_s == "" %>
+						<img class="avatar" src="/assets/fabriq_avatar_bg.jpg" />
+					<% else %>
+						<img class="avatar" src="<%= user.avatar.to_s %>" />
+					<% end %>
+					<div class="info">
+						<div class="inner">
+							<h4><%= user.name %></h4>
+							<p><i class="fa fa-star-o"></i><%= user.reputation.round %></p>
+						</div>
+					</div>
+				</a>
+			<% end %>
+		</div>
+	</div>
+</div>

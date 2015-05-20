@@ -21,15 +21,6 @@
 					<% end %>
 				<% end %>
 
-				<%= form_for(@user) do |thing| %>
-					<%= thing.label "Edit type" %>
-					<%= thing.text_field :usertype, class: "form-control" %>
-
-					<%= thing.submit "Update" %>
-
-					
-				<% end %>
-
 				<div class="rep">
 					<% if @user.reputation.round > 50 %>
 						<img width="30" src="/assets/star.jpg" />
