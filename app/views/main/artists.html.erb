@@ -1,6 +1,6 @@
 <div id="artists">
 	<div class="container">
-		<div class="top-reps row">
+		<div class="reps row">
 			<% @artists.each do |dj| %>
 				<a href="/users/<%= dj.id %>" class="item">
 					<img src="<%= dj.avatar.to_s %>" />
