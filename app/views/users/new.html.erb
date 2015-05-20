@@ -7,36 +7,42 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
-			<%= form_for(@user) do |f| %>
-				<%= render 'shared/error_messages', object: f.object %>
-
-				<div class="row">
-					<div class="col-sm-12">
-					  <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
-					  <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12">
-						<%= f.collection_select( :usertype, @usertypes, :to_s, :to_s, {:prompt => @placeholder }, { :class => "form-control select" }) %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12">
-					  <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
-					  <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: "form-control" %>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-12 col">
-						<div class="button-container row">
-							<div class="col-xs-6"><%= f.submit "Create", class: "save button" %></div>
-							<div class="col-xs-6"><%= link_to 'Cancel', '/main/home', class: "cancel button" %></div>
+			<div class="row">
+				<div class="col-sm-12 col">
+					<div class="signup button-container">
+						<div class="result">
 						</div>
+						<dl>
+							<dt>
+								username
+							</dt>
+							<dd>
+							<%= tag "input", {"id"=> "name", "type" => "text" } %>
+							</dd>
+							<dt>
+								email
+							</dt>
+							<dd>
+								<%= tag "input", {"id"=> "email", "type" => "text"} %>
+							</dd>
+							<dt>
+								password
+							</dt>
+							<dd>
+								<%= tag "input", {"id"=> "password1", "type" => "password"} %>
+							</dd>
+							<dt>
+								confirm password
+							</dt>
+							<dd>
+								<%= tag "input", {"id"=> "password2", "type" => "password"} %>
+							</dd>
+						</dl>
+						<%= tag "input", {"id"=> "register", "type" => "button", "value"=>"Create", "class"=>"save button"} %>
+						<%= link_to 'Cancel', '/main/index', class: "cancel button" %>
 					</div>
 				</div>
-			<% end %>
+			</div>
 		</div>
 	</div>
 </div>

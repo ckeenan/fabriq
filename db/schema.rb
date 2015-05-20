@@ -53,6 +53,10 @@ ActiveRecord::Schema.define(version: 20150520131304) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "usertype"
+    t.string   "epk"
+    t.string   "address"
   end
+
+  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
 
 end
