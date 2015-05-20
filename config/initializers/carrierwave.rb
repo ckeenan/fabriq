@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',                                       # required
-    :aws_access_key_id      => 'AKIAJ34AB7E2OW2WEVNQ',                      # required
-    :aws_secret_access_key  => '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',  # required
+    :aws_access_key_id      => 'AKIAJMQVN6LAXR62EAXQ',                      # required
+    :aws_secret_access_key  => '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',  # required
   }
   config.fog_directory  = 'fabriq'                              # required
   config.fog_public     = false                                   # optional, defaults to true
