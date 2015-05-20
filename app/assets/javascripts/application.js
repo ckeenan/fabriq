@@ -40,6 +40,7 @@ $(document).ready(function() {
 	// Mobile Header Events
 	/////////////////////////////////////////////////////////////////////////////////////
 	var mobileHeader = $('.admin-mobile');
+	var mobileLandingHeader = $('.admin-landing-mobile')
 	var header = $("#header");
 
 	$(mobileHeader).on("click", function() {

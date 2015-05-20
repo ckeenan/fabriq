@@ -834,4 +834,40 @@
 }
 
 
+@media (max-width: 992px) {
+
+	#home {
+
+		.landing {
+
+			.tagline {
+				font-size: 1.25em;
+			}
+		}
+
+		#what {
+
+			.newsletter {
+
+				.form-control {
+					width: 100%;
+				}
+
+				.button {
+					width: 100%;
+					margin-top: 1em;
+					margin-left: 0;
+				}
+			}
+		}
+
+		#how {
+			height: 80em;
+		}
+
+		#lounge {
+			height: 160em;
+		}
+	}
+}
 

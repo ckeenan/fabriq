@@ -130,14 +130,6 @@ html, html body {
 	}
 }
 
-#header.mobile-open {
-	height: 15em;
-
-	.mobile-drop {
-		opacity: 1;
-	}
-}
-
 #header.landing {
 	background:transparent;
 	border: 0;
@@ -158,6 +150,33 @@ html, html body {
 			margin: 1em;
 			line-height: 3em;
 			padding: 0 1em;
+		}
+	}
+
+	.admin-mobile {
+
+		i {
+			color: #ddd;
+		}
+	}
+}
+
+#header.mobile-open {
+	height: 15em;
+	background: #fff;
+
+	h1 {
+		color: #555;
+	}
+
+	.mobile-drop {
+		opacity: 1;
+	}
+
+	.admin-mobile {
+
+		i {
+			color: #666;
 		}
 	}
 }
