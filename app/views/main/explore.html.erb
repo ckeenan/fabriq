@@ -43,7 +43,11 @@
 		<div class="top-reps row">
 			<% @top_reps.each do |rep| %>
 				<a href="/users/<%= rep.id %>" class="item">
-					<img src="<%= rep.avatar.to_s %>" />
+					<% if rep.avatar.to_s == "" %>
+						<img src="/assets/fabriq_avatar_bg.jpg" />
+					<% else %>
+						<img src="<%= rep.avatar.to_s %>" />
+					<% end %>
 					<div class="info">
 						<div class="inner">
 							<h4><%= rep.name %></h4>

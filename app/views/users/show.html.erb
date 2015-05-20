@@ -7,12 +7,18 @@
 		</div>
 		<div class="content row">
 			<div class="col-md-2 col-md-offset-2">
-				<img style="display: block; width: 100%; margin: 0 auto;" src="<%= @user.avatar.to_s %>" />
-				<%= form_for(@user) do |f| %>
-					<%= f.label "New Avatar" %>
-					<%= f.file_field :avatar, :onchange =>"validateFiles(this);", class: "form-control" %>
+				<% if @user.avatar.to_s == "" %>
+					<img class="avatar" src="/assets/fabriq_avatar_bg.jpg" />
+				<% else %>
+					<img class="avatar" src="<%= @user.avatar.to_s %>" />
+				<% end %>
+				<% if @user == current_user %>
+					<%= form_for(@user) do |f| %>
+						<%= f.label "New Avatar" %>
+						<%= f.file_field :avatar, :onchange =>"validateFiles(this);", class: "form-control" %>
 
-					<%= f.submit "Update" %>
+						<%= f.submit "Update" %>
+					<% end %>
 				<% end %>
 
 				<div class="rep">
