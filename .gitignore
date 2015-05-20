@@ -17,3 +17,5 @@
 /tmp
 
 /config/initializers/carrierwave.rb
+/config/initializers/carrierwave
+config/initializers/carrierwave.rb
