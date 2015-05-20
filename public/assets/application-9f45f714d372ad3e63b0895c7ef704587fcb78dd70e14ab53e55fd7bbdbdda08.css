@@ -1143,15 +1143,20 @@ html, html body {
   z-index: 500;
   border-bottom: 2px solid #ddd;
   background: #fff;
+  overflow: hidden;
+  transition: all .1s;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  -ms-transition: all .1s;
 }
-/* line 39, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 44, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header .logo {
   display: block;
   float: left;
   height: 100%;
   text-decoration: none;
 }
-/* line 45, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 50, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header .logo img {
   display: inline-block;
   height: 4em;
@@ -1162,7 +1167,7 @@ html, html body {
   -ms-transition: all .1s;
   -webkit-transition: all .1s;
 }
-/* line 56, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 61, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header .logo h1 {
   font-weight: bold;
   font-family: 'Kabel';
@@ -1174,13 +1179,13 @@ html, html body {
   color: #555;
   text-decoration: none;
 }
-/* line 73, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 78, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header .admin-panel {
   height: 100%;
   position: relative;
   float: right;
 }
-/* line 78, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 83, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header .admin-panel a {
   display: inline-block;
   text-decoration: none;
@@ -1194,27 +1199,63 @@ html, html body {
   font-family: 'Kabel';
   font-weight: 600;
 }
-/* line 92, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 97, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header .admin-panel a:hover {
   color: #000;
 }
+/* line 102, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .admin-mobile {
+  display: none;
+  font-size: 3em;
+  padding-right: .5em;
+  padding-top: .15em;
+  padding-left: .5em;
+  float: right;
+}
+/* line 111, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .mobile-drop {
+  display: none;
+  opacity: 0;
+  transition: all .25s;
+  -webkit-transition: all .25s;
+  -moz-transition: all .25s;
+  -ms-transition: all .25s;
+  text-align: center;
+}
+/* line 120, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header .mobile-drop a {
+  display: block;
+  padding: .25em;
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  font-size: 1.2em;
+}
 
-/* line 98, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 130, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header.mobile-open {
+  height: 15em;
+}
+/* line 133, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+#header.mobile-open .mobile-drop {
+  opacity: 1;
+}
+
+/* line 138, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header.landing {
   background: transparent;
   border: 0;
 }
-/* line 102, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 142, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header.landing h1 {
   color: #fff;
 }
-/* line 106, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 146, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header.landing .admin-panel {
   height: 100%;
   position: relative;
   float: right;
 }
-/* line 111, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 151, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #header.landing .admin-panel a {
   display: inline-block;
   text-decoration: none;
@@ -1224,36 +1265,57 @@ html, html body {
   padding: 0 1em;
 }
 
-/* line 122, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 162, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 .edit-container {
   padding-top: 8em;
 }
 
-/* line 127, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 167, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #footer {
   padding: 10em 0;
   width: 100%;
   background: #000;
 }
-/* line 132, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 172, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #footer .foot-info {
   border-top: 1px solid #fff;
   padding: 1em 0 0;
 }
-/* line 136, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 176, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #footer .foot-info .copyright {
   color: #fff;
   text-align: left;
   font-size: 1em;
 }
-/* line 142, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 182, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #footer .foot-info .foot-links {
   float: right;
 }
-/* line 145, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+/* line 185, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
 #footer .foot-info .foot-links a {
   display: inline-block;
   padding: 0 2em;
   font-size: 1em;
   color: #fff;
+}
+
+@media (max-width: 992px) {
+  /* line 203, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+  #header .logo img {
+    height: 3em;
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+  /* line 210, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+  #header .admin-panel {
+    display: none;
+  }
+  /* line 214, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+  #header .admin-mobile {
+    display: block;
+  }
+  /* line 218, /Users/Bryan/Desktop/projects/fabriq/app/assets/stylesheets/application.scss */
+  #header .mobile-drop {
+    display: block;
+  }
 }

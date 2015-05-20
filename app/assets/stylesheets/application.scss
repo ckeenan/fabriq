@@ -34,6 +34,11 @@ html, html body {
 	z-index: 500;
 	border-bottom: 2px solid #ddd;
 	background: #fff;
+	overflow: hidden;
+	transition: all .1s;
+	-webkit-transition: all .1s;
+	-moz-transition: all .1s;
+	-ms-transition: all .1s;
 
 	.logo {
 		display: block;
@@ -92,6 +97,41 @@ html, html body {
 			color: #000;
 		}
 	}
+
+	.admin-mobile {
+		display: none;
+		font-size: 3em;
+		padding-right: .5em;
+		padding-top: .15em;
+		padding-left: .5em;
+		float: right;
+	}
+
+	.mobile-drop {
+		display: none;
+		opacity: 0;
+		transition: all .25s;
+		-webkit-transition: all .25s;
+		-moz-transition: all .25s;
+		-ms-transition: all .25s;
+		text-align: center;
+
+		a {
+			display: block;
+			padding: .25em;
+			font-family: 'Lato', sans-serif;
+			color: #333;
+			font-size: 1.2em;
+		}
+	}
+}
+
+#header.mobile-open {
+	height: 15em;
+
+	.mobile-drop {
+		opacity: 1;
+	}
 }
 
 #header.landing {
@@ -147,6 +187,35 @@ html, html body {
 				font-size: 1em;
 				color: #fff;
 			}
+		}
+	}
+}
+
+
+
+@media (max-width: 992px) {
+	
+	#header {
+
+		.logo {
+
+			img {
+				height: 3em;
+				margin-top: 1em;
+				margin-left: 1em;
+			}
+		}
+
+		.admin-panel {
+			display: none;
+		}
+
+		.admin-mobile {
+			display: block;
+		}
+
+		.mobile-drop {
+			display: block;
 		}
 	}
 }

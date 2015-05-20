@@ -16,6 +16,20 @@
 					<a href="/signin" class="login">Log In</a>
 				<% end %>
 			</div>
+			<div class="admin-mobile">
+				<i class="fa fa-bars"></i>
+			</div>
+		</div>
+		<div class="mobile-drop row">
+			<% if signed_in? %><a href="/users/<%= current_user.id %>">Hello, <%= current_user.name %></a><% end %>
+			<a href="/main/explore">Explore</a>
+			<a href="/main/about">About Fabriq</a>
+			<a href="/main/invite">Invite Others</a>
+			<% if signed_in? %>	        
+			    <%= link_to "Log out", signout_path, method: "delete", class: 'login' %>
+			<% else %>
+				<a href="/signin" class="login">Log In</a>
+			<% end %>
 		</div>
 	</div>
 </div>

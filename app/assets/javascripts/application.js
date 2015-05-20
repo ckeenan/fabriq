@@ -19,7 +19,7 @@
 $(document).ready(function() {
 
 	// Smooth Scroll
-	//////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////
 	
 	$('a[href*=#]:not([href=#])').click(function() {
 	  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
@@ -35,4 +35,15 @@ $(document).ready(function() {
 	      }
 	  }
 	});
+
+
+	// Mobile Header Events
+	/////////////////////////////////////////////////////////////////////////////////////
+	var mobileHeader = $('.admin-mobile');
+	var header = $("#header");
+
+	$(mobileHeader).on("click", function() {
+		$(header).toggleClass("mobile-open");
+	});
+
 });
