@@ -173,23 +173,21 @@ function checkPendingTransactions() {
 	function clearRegister(el) {
 		if (el.id == regTxHash) {
 			localStorage.setItem('registering', '');
-			console.log("Attempting to validate");
 
 			// TODO remove validation attempts. Wait for the txhash logs, then see if it has an ID or not...
-
 			fw.validate(function(err, id) {
 				// Throw err after X attempts
-				console.log("validate", err, id);
 				if (err) {
 					enableSignup();
 					// TODO Redirect users to sign in form here (just in case)
 					$('.result').html("Registration timed out");
 				}
 				else if (id) {
+					// Post the user id to create a session
 					$.post('/sessions', {id: id}, function() {
 						window.location.href = '/main/index';
 					});
-				}
+				} else enableSignup();
 			});
 		}
 	}
