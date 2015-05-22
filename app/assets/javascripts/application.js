@@ -220,10 +220,7 @@ function beam(user, amount) {
 }
 
 function link(user) {
-	console.log("LINK", user);
-	/*
 	fw.link(user, function(data) {
-		console.log("Link", user, data);
+		loadPending();
 	});
-	*/
 }

@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    link_result = ActiveRecord::Base.connection.execute("SELECT * FROM links WHERE fromuser='" + @user.address + "'");
+    @linked_bool = !link_result.first.present?
   end
 
   # GET /users/new

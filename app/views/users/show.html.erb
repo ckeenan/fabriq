@@ -53,7 +53,9 @@
 				</p>
 				<div class="button-container">
 					<% if @user != current_user %>
-						<input class="button save" type="button" value="link" onclick="link('<%= @user.name %>');">
+						<% if @linked_bool %>
+							<input class="button save" type="button" value="link" onclick="link('<%= @user.name %>');">
+						<% end %>
 						<input class="button save" type="button" value="Beam 5" onclick="beam('<%= @user.name %>', 5);">
 						<input class="button save" type="button" value="Beam 10" onclick="beam('<%= @user.name %>', 10);">
 						<input class="button save" type="button" value="Beam 15" onclick="beam('<%= @user.name %>', 15);">
